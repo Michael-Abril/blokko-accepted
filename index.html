@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blokko | Supported Payment Methods</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script type='module' nonce='ftFhxgNUXV3XEo9DyR5j7g' src='https://mail-attachment.googleusercontent.com/mD2q6rBqUcFGbjvDBuuiz1FBctCjZUm4TL1bM86g8QPIMDQSUuwQCwrG3fyFZ2cDZh0U5012soGe3bIUngbmSg=='></script><script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
@@ -21,10 +21,12 @@
             --blokko-card-bg: #f4f8fb;
         }
         .glass-card {
-            background: var(--blokko-card-bg);
+            background: #ffffff;
             color: #0A2540;
-            border: 1.5px solid var(--blokko-primary);
+            border: 3px solid transparent;
             border-radius: 1.25rem;
+            border-image-source: linear-gradient(135deg, #4aa6db 0%, #76c23a 100%);
+            border-image-slice: 1;
             box-shadow: 0 2px 12px 0 rgba(74,166,219,0.07);
             backdrop-filter: blur(6px);
         }
@@ -54,6 +56,12 @@
             border-radius: 1rem;
             box-shadow: 0 2px 8px 0 rgba(74,166,219,0.07);
             border: 1px solid #e2e8f0;
+        }
+        .coin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
         }
         .coin-card:hover {
             transform: translateY(-4px) scale(1.03);
@@ -115,9 +123,11 @@
             font-size: 1rem;
             letter-spacing: 0.01em;
             transition: background 0.2s;
-            margin: 1rem auto 0 auto;
+            margin: 0.5rem auto 0 auto;
             display: block;
             box-shadow: 0 2px 8px 0 rgba(74,166,219,0.10);
+            position: relative;
+            z-index: 10;
         }
         .show-more-btn:hover {
             background: var(--blokko-green);
@@ -129,16 +139,15 @@
         .wallet-card { background: #fff; color: #0A2540; border: 1px solid #e2e8f0; border-radius: 1rem; box-shadow: 0 2px 8px 0 rgba(74,166,219,0.07); transition: box-shadow 0.2s; }
         .wallet-card:hover { box-shadow: 0 8px 24px 0 rgba(74,166,219,0.13); }
         .ln-wallets {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   justify-content: center;
   margin-top: 1.5em;
 }
 @media (min-width: 768px) {
   .ln-wallets {
-    flex-direction: row;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 .ln-wallet-card {
@@ -242,13 +251,18 @@
           font-size: 0.8em;
         }
         
+        .coin-section {
+          margin-top: 1em;
+        }
+        
         .coin-grid {
           display: grid;
           grid-template-columns: repeat(1, 1fr);
           gap: 1em;
-          margin-top: 1em;
           overflow: hidden;
-          padding-bottom: 60px;
+          padding-bottom: 0;
+          overflow-y: scroll;
+          scrollbar-gutter: stable;
         }
         @media (min-width: 640px) {
           .coin-grid {
@@ -550,21 +564,21 @@
         }
         
         .wallet-note {
-          margin-top: 1rem;
-          padding: 0.75rem;
+          padding: 1.5rem 2rem;
           background: #f4f8fb;
           border: 1px solid #e2e8f0;
-          border-radius: 0.5rem;
-          border-left: 3px solid #4aa6db;
+          border-radius: 1rem;
+          margin-top: 2rem;
+          text-align: center;
         }
-        
         .wallet-note p:first-child {
           color: #0A2540;
-          font-weight: 600;
-          font-size: 0.875rem;
-          margin-bottom: 0.25rem;
+          font-weight: 900;
+          font-size: 2.5vw; /* Responsive, very large */
+          line-height: 1.15;
+          margin-bottom: 0.5rem;
+          letter-spacing: -0.01em;
         }
-        
         .wallet-note p:last-child {
           color: #64748b;
           font-size: 0.75rem;
@@ -626,22 +640,24 @@
           }
         }
         .search-clear-btn {
-          width: 32px;
-          height: 32px;
+          width: 28px;
+          height: 28px;
           display: flex;
           align-items: center;
           justify-content: center;
           border-radius: 50%;
           background: #f4f8fb;
           border: 1px solid #e2e8f0;
-          font-size: 1.2rem;
+          font-size: 1rem;
           transition: background 0.15s, box-shadow 0.15s;
           box-shadow: 0 1px 2px 0 rgba(74,166,219,0.04);
           z-index: 10;
           position: absolute;
-          right: 8px;
-          top: 50%;
+          right: 10px;
+          top: 37%;
           transform: translateY(-50%);
+          line-height: 0;
+          padding: 0;
         }
         .search-clear-btn:hover {
           background: #e2e8f0;
@@ -654,7 +670,7 @@
     <div class="container mx-auto px-4 py-8 md:py-16">
         <!-- Blokko Logo Top Left -->
         <div class="absolute left-0 top-0 p-6 z-20">
-          <img src="https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/20368613-logo-2024-519x196.jpeg" alt="Blokko.io Logo" class="h-20 md:h-28" style="max-width:320px;">
+          <img src="https://a10449bdfbfb3f01814a0ac8808e260a.cdn.bubble.io/cdn-cgi/image/w=192,h=83,f=auto,dpr=1,fit=contain/f1730063213960x236193636720462240/Blokko_io.png" alt="Blokko.io Logo" class="h-20 md:h-28" style="max-width:320px;">
         </div>
         <!-- Header Section -->
         <header class="text-center mb-16 fade-in">
@@ -712,7 +728,7 @@
                     <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Banorte_logo.svg" alt="Banorte" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Banorte</span></div>
                     <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Mercado_Pago_logo.svg" alt="Mercado Pago" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Mercado Pago</span></div>
                     <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Banco_Azteca_logo.svg" alt="Banco Azteca" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Banco Azteca</span></div>
-                  </div>
+                    </div>
                 </div>
             </section>
 
@@ -770,6 +786,44 @@
             </section>
         </main>
     </div>
+    
+    <!-- Footer -->
+    <footer class="mt-20 py-8 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <p class="text-gray-600 text-sm mb-4 text-center">
+                Copyright © 2025 Blokko.io. All Rights Reserved.
+            </p>
+            <div class="flex justify-between items-center">
+                <div class="flex space-x-6">
+                    <a href="https://blokkoio.bubbleapps.io/" class="text-gray-500 hover:text-[#4aa6db] text-sm font-medium transition-colors">Blokko Home</a>
+                    <a href="#" class="text-gray-500 hover:text-[#4aa6db] text-sm font-medium transition-colors">Blokko Academy</a>
+                    <a href="#" class="text-gray-500 hover:text-[#4aa6db] text-sm font-medium transition-colors">Blog</a>
+                    <a href="#" class="text-gray-500 hover:text-[#4aa6db] text-sm font-medium transition-colors">Support</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <span class="text-gray-500 text-xs">Follow Us At</span>
+                    <div class="flex space-x-3">
+                        <a href="https://www.instagram.com/blokko.io/" class="text-gray-500 hover:text-[#4aa6db] transition-colors" title="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/blokko_io" class="text-gray-500 hover:text-[#4aa6db] transition-colors" title="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.reddit.com/user/blokko_io/" class="text-gray-500 hover:text-[#4aa6db] transition-colors" title="Reddit">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
     <script>
     // --- ENHANCED MOCK API DATA ---
     // Binance specific coins (comprehensive list)
@@ -985,45 +1039,45 @@
                             { name: "MetaMask", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/2048px-MetaMask_Fox.svg.png" },
                             { name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
                             { name: "Ledger Live", icon: "https://play-lh.googleusercontent.com/mHjR3KaAMw3RGA15-t8gXNAy_Onr4ZYUQ07Z9fG2vd51IXO5rd7wtdqEWbNMPTgdqrk=w240-h480-rw" },
-                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "Rainbow", icon: "https://play-lh.googleusercontent.com/7B0qai02OdHA8P_EOVK672qOX7qQyBw8RQZJ5u7ugVh5a9Zt3Tu5IfpqN3nlmPMJgJo" },
-                            { name: "Argent", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "Trezor", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "Brave Wallet", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" }
+                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/wrgUujbq5kbn4Wd4tzyhQnxOXkjiGqq39N4zBvCHmxpIiKcZw_Pb065KTWWlnoejsg" },
+                            { name: "Rainbow", icon: "https://play-lh.googleusercontent.com/fMUvmUmIpIDoZGTACYohbY3DE7-24GFkQ21WjVHxa57qluzWrr7khkycE8cz_juhew" },
+                            { name: "Argent", icon: "https://play-lh.googleusercontent.com/P-xt-cfYUtwVQ3YsNb5yd5_6MzCHmcKAbRkt-up8Ga44x_OCGLy4WFxsGhxfJaSLEw" },
+                            { name: "Trezor", icon: "https://crypto-central.io/library/uploads/Trezor-Logo-300x300.png" },
+                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/d0y_tc6f3BRdVodzpcqoXYQSndvlMoXXqHAwHmDvzwghRvQO8WGSM1I8_lHK_OUNVQ" },
+                            { name: "Brave Wallet", icon: "https://images.prismic.io/sacra/ZjwT5EMTzAJOCpU5_bravelogo.png?auto=format,compress" }
                         ] },
                         { chain: "Solana", icon: "https://s3.coinmarketcap.com/static-gravity/image/5cc0b99a8dd84fbfa4e150d84b5531f2.png", wallets: [
                             { name: "Phantom", icon: "https://play-lh.googleusercontent.com/obRvW02OTYLzJuvic1ZbVDVXLXzI0Vt_JGOjlxZ92XMdBF_i3kqU92u9SgHvJ5pySdM" },
                             { name: "Solflare", icon: "https://solflare.com/favicon.ico" },
                             { name: "Backpack", icon: "https://backpack.app/favicon.ico" },
                             { name: "Ledger Live", icon: "https://play-lh.googleusercontent.com/mHjR3KaAMw3RGA15-t8gXNAy_Onr4ZYUQ07Z9fG2vd51IXO5rd7wtdqEWbNMPTgdqrk=w240-h480-rw" },
-                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "MathWallet", icon: "https://mathwallet.org/img/icon.png" },
+                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/d0y_tc6f3BRdVodzpcqoXYQSndvlMoXXqHAwHmDvzwghRvQO8WGSM1I8_lHK_OUNVQ" },
+                            { name: "MathWallet", icon: "https://medishares.oss-cn-hongkong.aliyuncs.com/logo/math/MathWallet_App_Icon.png" },
                             { name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
-                            { name: "Atomic Wallet", icon: "https://atomicwallet.io/favicon.ico" },
-                            { name: "Coin98", icon: "https://coin98.com/favicon.ico" }
+                            { name: "Atomic Wallet", icon: "https://play-lh.googleusercontent.com/t8vnANR3Ofzoe1rgCTV5McOtbnXLxt7uTKa7nM9uVxthfeXzOEkLiyf6Mbwo6bf1Gjs" },
+                            { name: "Coin98", icon: "https://s3.coinmarketcap.com/static/img/portraits/62f9ef9c5826c055f13c65d2.png" }
                         ] },
                         { chain: "Polygon", icon: "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/matic.svg", wallets: [
                             { name: "MetaMask", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/2048px-MetaMask_Fox.svg.png" },
                             { name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
                             { name: "Ledger Live", icon: "https://play-lh.googleusercontent.com/mHjR3KaAMw3RGA15-t8gXNAy_Onr4ZYUQ07Z9fG2vd51IXO5rd7wtdqEWbNMPTgdqrk=w240-h480-rw" },
-                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
+                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/wrgUujbq5kbn4Wd4tzyhQnxOXkjiGqq39N4zBvCHmxpIiKcZw_Pb065KTWWlnoejsg" },
                             { name: "SafePal", icon: "https://safepal.com/favicon.ico" },
-                            { name: "MathWallet", icon: "https://mathwallet.org/img/icon.png" },
-                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
+                            { name: "MathWallet", icon: "https://medishares.oss-cn-hongkong.aliyuncs.com/logo/math/MathWallet_App_Icon.png" },
+                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/d0y_tc6f3BRdVodzpcqoXYQSndvlMoXXqHAwHmDvzwghRvQO8WGSM1I8_lHK_OUNVQ" },
                             { name: "TokenPocket", icon: "https://tokenpocket.pro/favicon.ico" },
-                            { name: "imToken", icon: "https://token.im/favicon.ico" }
+                            { name: "imToken", icon: "https://play-lh.googleusercontent.com/GLZ8GXzaIlCrbnhnTFOlEddrzYEhllePyA3BiiBOoxeQbrq9cOXFzolz4KY57goWSALb" }
                         ] },
                         { chain: "Tron", icon: "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/trx.svg", wallets: [
                             { name: "TronLink", icon: "https://tronlink.org/favicon.ico" },
                             { name: "Klever Wallet", icon: "https://play-lh.googleusercontent.com/hRxsVGB2HFaE5EHs7mY2iSR8gjNHYi_YJNop4num5nbBJhkKzmZJ-3JP86WHQCFYhWkQ" },
                             { name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
                             { name: "Ledger Live", icon: "https://play-lh.googleusercontent.com/mHjR3KaAMw3RGA15-t8gXNAy_Onr4ZYUQ07Z9fG2vd51IXO5rd7wtdqEWbNMPTgdqrk=w240-h480-rw" },
-                            { name: "MathWallet", icon: "https://mathwallet.org/img/icon.png" },
-                            { name: "Atomic Wallet", icon: "https://atomicwallet.io/favicon.ico" },
+                            { name: "MathWallet", icon: "https://medishares.oss-cn-hongkong.aliyuncs.com/logo/math/MathWallet_App_Icon.png" },
+                            { name: "Atomic Wallet", icon: "https://play-lh.googleusercontent.com/t8vnANR3Ofzoe1rgCTV5McOtbnXLxt7uTKa7nM9uVxthfeXzOEkLiyf6Mbwo6bf1Gjs" },
                             { name: "TokenPocket", icon: "https://tokenpocket.pro/favicon.ico" },
-                            { name: "imToken", icon: "https://token.im/favicon.ico" },
-                            { name: "TronWallet", icon: "https://tronwallet.me/favicon.ico" }
+                            { name: "imToken", icon: "https://play-lh.googleusercontent.com/GLZ8GXzaIlCrbnhnTFOlEddrzYEhllePyA3BiiBOoxeQbrq9cOXFzolz4KY57goWSALb" },
+                            { name: "TronWallet", icon: "https://pbs.twimg.com/profile_images/1761904730668675072/v98T7vRL_400x400.jpg" }
                         ] }
                     ]
                 },
@@ -1036,34 +1090,34 @@
                             { name: "MetaMask", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/2048px-MetaMask_Fox.svg.png" },
                             { name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
                             { name: "Ledger Live", icon: "https://play-lh.googleusercontent.com/mHjR3KaAMw3RGA15-t8gXNAy_Onr4ZYUQ07Z9fG2vd51IXO5rd7wtdqEWbNMPTgdqrk=w240-h480-rw" },
-                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
+                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/wrgUujbq5kbn4Wd4tzyhQnxOXkjiGqq39N4zBvCHmxpIiKcZw_Pb065KTWWlnoejsg" },
                             { name: "Rainbow", icon: "https://play-lh.googleusercontent.com/7B0qai02OdHA8P_EOVK672qOX7qQyBw8RQZJ5u7ugVh5a9Zt3Tu5IfpqN3nlmPMJgJo" },
                             { name: "Argent", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
                             { name: "Trezor", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "Brave Wallet", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" }
+                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/d0y_tc6f3BRdVodzpcqoXYQSndvlMoXXqHAwHmDvzwghRvQO8WGSM1I8_lHK_OUNVQ" },
+                            { name: "Brave Wallet", icon: "https://images.prismic.io/sacra/ZjwT5EMTzAJOCpU5_bravelogo.png?auto=format,compress" }
                         ] },
                         { chain: "Solana", icon: "https://s3.coinmarketcap.com/static-gravity/image/5cc0b99a8dd84fbfa4e150d84b5531f2.png", wallets: [
                             { name: "Phantom", icon: "https://play-lh.googleusercontent.com/obRvW02OTYLzJuvic1ZbVDVXLXzI0Vt_JGOjlxZ92XMdBF_i3kqU92u9SgHvJ5pySdM" },
                             { name: "Solflare", icon: "https://solflare.com/favicon.ico" },
                             { name: "Backpack", icon: "https://backpack.app/favicon.ico" },
                             { name: "Ledger Live", icon: "https://play-lh.googleusercontent.com/mHjR3KaAMw3RGA15-t8gXNAy_Onr4ZYUQ07Z9fG2vd51IXO5rd7wtdqEWbNMPTgdqrk=w240-h480-rw" },
-                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "MathWallet", icon: "https://mathwallet.org/img/icon.png" },
+                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/d0y_tc6f3BRdVodzpcqoXYQSndvlMoXXqHAwHmDvzwghRvQO8WGSM1I8_lHK_OUNVQ" },
+                            { name: "MathWallet", icon: "https://medishares.oss-cn-hongkong.aliyuncs.com/logo/math/MathWallet_App_Icon.png" },
                             { name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
-                            { name: "Atomic Wallet", icon: "https://atomicwallet.io/favicon.ico" },
-                            { name: "Coin98", icon: "https://coin98.com/favicon.ico" }
+                            { name: "Atomic Wallet", icon: "https://play-lh.googleusercontent.com/t8vnANR3Ofzoe1rgCTV5McOtbnXLxt7uTKa7nM9uVxthfeXzOEkLiyf6Mbwo6bf1Gjs" },
+                            { name: "Coin98", icon: "https://s3.coinmarketcap.com/static/img/portraits/62f9ef9c5826c055f13c65d2.png" }
                         ] },
                         { chain: "Polygon", icon: "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/matic.svg", wallets: [
                             { name: "MetaMask", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/2048px-MetaMask_Fox.svg.png" },
                             { name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
                             { name: "Ledger Live", icon: "https://play-lh.googleusercontent.com/mHjR3KaAMw3RGA15-t8gXNAy_Onr4ZYUQ07Z9fG2vd51IXO5rd7wtdqEWbNMPTgdqrk=w240-h480-rw" },
-                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
+                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/wrgUujbq5kbn4Wd4tzyhQnxOXkjiGqq39N4zBvCHmxpIiKcZw_Pb065KTWWlnoejsg" },
                             { name: "SafePal", icon: "https://safepal.com/favicon.ico" },
-                            { name: "MathWallet", icon: "https://mathwallet.org/img/icon.png" },
-                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
+                            { name: "MathWallet", icon: "https://medishares.oss-cn-hongkong.aliyuncs.com/logo/math/MathWallet_App_Icon.png" },
+                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/d0y_tc6f3BRdVodzpcqoXYQSndvlMoXXqHAwHmDvzwghRvQO8WGSM1I8_lHK_OUNVQ" },
                             { name: "TokenPocket", icon: "https://tokenpocket.pro/favicon.ico" },
-                            { name: "imToken", icon: "https://token.im/favicon.ico" }
+                            { name: "imToken", icon: "https://play-lh.googleusercontent.com/GLZ8GXzaIlCrbnhnTFOlEddrzYEhllePyA3BiiBOoxeQbrq9cOXFzolz4KY57goWSALb" }
                         ] }
                     ]
                 },
@@ -1076,23 +1130,23 @@
                             { name: "MetaMask", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/2048px-MetaMask_Fox.svg.png" },
                             { name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
                             { name: "Ledger Live", icon: "https://play-lh.googleusercontent.com/mHjR3KaAMw3RGA15-t8gXNAy_Onr4ZYUQ07Z9fG2vd51IXO5rd7wtdqEWbNMPTgdqrk=w240-h480-rw" },
-                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
+                            { name: "Coinbase Wallet", icon: "https://play-lh.googleusercontent.com/wrgUujbq5kbn4Wd4tzyhQnxOXkjiGqq39N4zBvCHmxpIiKcZw_Pb065KTWWlnoejsg" },
                             { name: "Rainbow", icon: "https://play-lh.googleusercontent.com/7B0qai02OdHA8P_EOVK672qOX7qQyBw8RQZJ5u7ugVh5a9Zt3Tu5IfpqN3nlmPMJgJo" },
                             { name: "Argent", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
                             { name: "Trezor", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "Brave Wallet", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" }
+                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/d0y_tc6f3BRdVodzpcqoXYQSndvlMoXXqHAwHmDvzwghRvQO8WGSM1I8_lHK_OUNVQ" },
+                            { name: "Brave Wallet", icon: "https://images.prismic.io/sacra/ZjwT5EMTzAJOCpU5_bravelogo.png?auto=format,compress" }
                         ] },
                         { chain: "Solana", icon: "https://s3.coinmarketcap.com/static-gravity/image/5cc0b99a8dd84fbfa4e150d84b5531f2.png", wallets: [
                             { name: "Phantom", icon: "https://play-lh.googleusercontent.com/obRvW02OTYLzJuvic1ZbVDVXLXzI0Vt_JGOjlxZ92XMdBF_i3kqU92u9SgHvJ5pySdM" },
                             { name: "Solflare", icon: "https://solflare.com/favicon.ico" },
                             { name: "Backpack", icon: "https://backpack.app/favicon.ico" },
                             { name: "Ledger Live", icon: "https://play-lh.googleusercontent.com/mHjR3KaAMw3RGA15-t8gXNAy_Onr4ZYUQ07Z9fG2vd51IXO5rd7wtdqEWbNMPTgdqrk=w240-h480-rw" },
-                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/8fbesX3FwtlJXy_W72BOHGqbMM220XX3q6O7K3xE04XyLR9Pz9wwDdZOyjklYG1Lm8o" },
-                            { name: "MathWallet", icon: "https://mathwallet.org/img/icon.png" },
+                            { name: "Exodus", icon: "https://play-lh.googleusercontent.com/d0y_tc6f3BRdVodzpcqoXYQSndvlMoXXqHAwHmDvzwghRvQO8WGSM1I8_lHK_OUNVQ" },
+                            { name: "MathWallet", icon: "https://medishares.oss-cn-hongkong.aliyuncs.com/logo/math/MathWallet_App_Icon.png" },
                             { name: "Trust Wallet", icon: "https://trustwallet.com/assets/images/media/assets/TWT.png" },
-                            { name: "Atomic Wallet", icon: "https://atomicwallet.io/favicon.ico" },
-                            { name: "Coin98", icon: "https://coin98.com/favicon.ico" }
+                            { name: "Atomic Wallet", icon: "https://play-lh.googleusercontent.com/t8vnANR3Ofzoe1rgCTV5McOtbnXLxt7uTKa7nM9uVxthfeXzOEkLiyf6Mbwo6bf1Gjs" },
+                            { name: "Coin98", icon: "https://s3.coinmarketcap.com/static/img/portraits/62f9ef9c5826c055f13c65d2.png" }
                         ] }
                         ]
                     }
@@ -1111,11 +1165,11 @@
                         logo: "https://img.icons8.com/?size=512&id=Dk4sj0EM4b20&format=png",
                         wallets: [
                             { name: "Nubank", icon: "https://cdn.worldvectorlogo.com/logos/nubank-3.svg" },
-                            { name: "PicPay", icon: "https://cdn.worldvectorlogo.com/logos/picpay-1.svg" },
-                            { name: "Mercado Pago", icon: "https://vectorseek.com/wp-content/uploads/2023/08/Mercado-Pago-Icon-Logo-Vector.svg-.png" },
+                            { name: "PicPay", icon: "https://static.wikia.nocookie.net/logopedia/images/b/b5/Picpayicon.jpg/revision/latest/scale-to-width-down/250?cb=20181222023507" },
+                            { name: "Mercado Pago", icon: "https://cdn.shopify.com/app-store/listing_images/71ecb1758a5c85014ad8353f3ac28b65/icon/CMPXra-c0IADEAE=.png" },
                             { name: "Itaú Unibanco", icon: "https://static.stocktitan.net/company-logo/itub.png" },
-                            { name: "Bradesco", icon: "https://images.seeklogo.com/logo-png/21/1/bradesco-logo-png_seeklogo-216209.png" },
-                            { name: "Caixa Econômica Federal", icon: "https://images.seeklogo.com/logo-png/2/2/caixa-economica-federal-logo-png_seeklogo-24768.png" }
+                            { name: "Bradesco", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST284IN_gT1tCcK0G0C6jIYhhaizx3Hyiq4Q&s" },
+                            { name: "Caixa Econômica Federal", icon: "https://www.pikpng.com/pngl/b/466-4667744_caixa-econmica-federal-clipart.png" }
                         ]
                     },
                     {
@@ -1126,11 +1180,11 @@
                         description: "Digital payment system in Mexico",
                         logo: "https://play-lh.googleusercontent.com/EhQ0U7d6Sv3aBVW1eklqpgOCEiU3_WlfOOqhJ2gyhCYsEUgYsH_l8yhej5nMP1ctpck",
                         wallets: [
-                            { name: "BBVA México", icon: "https://www.bbva.com/wp-content/uploads/2019/06/Marqueex2.png" },
+                            { name: "BBVA México", icon: "https://i.pinimg.com/474x/54/06/91/540691b868850e0f554c185cec6e8277.jpg" },
                             { name: "Citibanamex", icon: "https://pbs.twimg.com/profile_images/1896573267420254208/H0-cFYwR_400x400.jpg" },
                             { name: "Santander México", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmd1a8AhhRoA_BOK5_j_jWBFxbW96E5vQ3Wg&s" },
                             { name: "Banorte", icon: "https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/gthkbvhbgohztffbgq4x" },
-                            { name: "Mercado Pago", icon: "https://vectorseek.com/wp-content/uploads/2023/08/Mercado-Pago-Icon-Logo-Vector.svg-.png" },
+                            { name: "Mercado Pago", icon: "https://cdn.shopify.com/app-store/listing_images/71ecb1758a5c85014ad8353f3ac28b65/icon/CMPXra-c0IADEAE=.png" },
                             { name: "Banco Azteca", icon: "https://i0.wp.com/fourboxesinnovation.com/wp-content/uploads/2021/04/xBAIMG.png?ssl=1" }
                         ]
                     }
@@ -1165,7 +1219,7 @@
                                         <img src="${ex.icon}" alt="${ex.name} logo" class="w-12 h-12 rounded-lg">
                                         <div>
                                             <h3 class="text-xl font-bold">${ex.name}</h3>
-                                            <p class="highlight text-sm">Click to view supported cryptocurrencies</p>
+                                            <p class="highlight text-sm">Any Listed Crypto is Accepted</p>
                                         </div>
                                     </div>
                                     <svg class="w-6 h-6 text-[#4aa6db]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1175,19 +1229,53 @@
                                 <div class="accordion-content">
                                     <div class="p-6 border-t border-[#e2e8f0]">
                                         <div class="relative">
-                                            <div class="relative flex items-center">
-                                                <input type="text" class="search-bar" placeholder="Search coins..." data-exchange="${index}">
-                                                <span class="search-clear-btn hidden absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer" data-exchange="${index}">&times;</span>
+                                            <!-- Action Bar -->
+                                            <div class="action-bar flex justify-between items-center py-3 mb-4 border-b border-[#e2e8f0]">
+                                                <a href="#" class="how-to-video-link text-[#4aa6db] text-sm font-medium flex items-center gap-1 hover:text-[#0A2540] transition-colors">
+                                                    ▶️ How-To Video
+                                                </a>
+                                                <a href="#" class="kyc-toggle-link text-[#4aa6db] text-sm font-medium flex items-center gap-1 hover:text-[#0A2540] transition-colors" data-exchange="${index}">
+                                                    ⓘ View KYC & Limits
+                                                </a>
                                             </div>
-                                            <div class="coin-grid" data-exchange="${index}"></div>
-                                            <button class="show-more-btn" data-exchange="${index}">Show More</button>
+                                            
+                                            <!-- KYC Info Box -->
+                                            <div class="kyc-info-section hidden bg-[#f4f8fb] border border-[#e2e8f0] rounded-lg p-6 mb-4">
+                                                <div class="font-bold text-[#0A2540] text-lg mb-4 text-center">KYC Requirements</div>
+                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                                    <div class="text-center">
+                                                        <div class="text-2xl font-bold text-[#76c23a] mb-2">None</div>
+                                                        <div class="text-[#0A2540] font-semibold text-base">KYC Requirement</div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <div class="text-2xl font-bold text-[#76c23a] mb-2">$500,000</div>
+                                                        <div class="text-[#0A2540] font-semibold text-base">Max Transaction</div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <div class="text-2xl font-bold text-[#76c23a] mb-2">Instant</div>
+                                                        <div class="text-[#0A2540] font-semibold text-base">Processing Time</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="relative flex items-center">
+                                        <input type="text" class="search-bar" placeholder="Search coins..." data-exchange="${index}">
+                                                <span class="search-clear-btn hidden text-gray-400 cursor-pointer" data-exchange="${index}">&times;</span>
+                                            </div>
+                                            <div class="coin-section">
+                                                <div class="coin-grid" data-exchange="${index}"></div>
+                                                <button class="show-more-btn" data-exchange="${index}">Show More</button>
+                                            </div>
+                                            <div class="wallet-note mt-3 p-3 bg-[#f4f8fb] border border-[#e2e8f0] rounded-lg">
+                                                <p class="text-2xl font-extrabold text-[#0A2540] mb-1">💡 We accept all coins listed on ${ex.name}.</p>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </section>
+                            `).join('')}
+                        </div>
+                    </section>
                 `;
             }
 
@@ -1208,6 +1296,41 @@
                                 <p class="text-[#4aa6db]">Instant Bitcoin Payments</p>
                             </div>
                         </div>
+                        
+                        <!-- Action Bar -->
+                        <div class="action-bar flex justify-between items-center py-3 mb-6 border-b border-[#e2e8f0]">
+                            <a href="#" class="how-to-video-link text-[#4aa6db] text-sm font-medium flex items-center gap-1 hover:text-[#0A2540] transition-colors">
+                                ▶️ How-To Video
+                            </a>
+                            <a href="#" class="kyc-toggle-link text-[#4aa6db] text-sm font-medium flex items-center gap-1 hover:text-[#0A2540] transition-colors" data-ln="lightning">
+                                ⓘ View KYC & Limits
+                            </a>
+                        </div>
+                        
+                        <!-- KYC Info Box -->
+                        <div class="kyc-info-section hidden bg-[#f4f8fb] border border-[#e2e8f0] rounded-lg p-6 mb-6">
+                            <div class="font-bold text-[#0A2540] text-lg mb-4 text-center">KYC Requirements</div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-[#76c23a] mb-2">None</div>
+                                    <div class="text-[#0A2540] font-semibold text-base">KYC Requirement</div>
+                                    <div class="text-[#64748b] text-sm">(up to $1K)</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-[#76c23a] mb-2">$1,000</div>
+                                    <div class="text-[#0A2540] font-semibold text-base">Max Transaction</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-[#76c23a] mb-2">Instant</div>
+                                    <div class="text-[#0A2540] font-semibold text-base">Processing Time</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-[#76c23a] mb-2">Lightning</div>
+                                    <div class="text-[#0A2540] font-semibold text-base">Network</div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             ${ln.wallets.map(wallet => `
                                 <div class="wallet-card bg-white border border-[#e2e8f0] rounded-xl p-6 flex items-center space-x-4 shadow-sm hover:shadow-md transition-all">
@@ -1224,59 +1347,101 @@
                 `;
             }
 
-        // 3. Stablecoins (Enhanced Card Layout)
+        // 3. Stablecoins (Blockchain-First Accordion Layout)
             if (data.stablecoins) {
                  const stablecoins = data.stablecoins;
+                
+                // Reorganize data by blockchain
+                const blockchainData = {};
+                stablecoins.coins.forEach(coin => {
+                    coin.networks.forEach(network => {
+                        if (!blockchainData[network.chain]) {
+                            blockchainData[network.chain] = {
+                                icon: network.icon,
+                                stablecoins: [],
+                                wallets: network.wallets
+                            };
+                        }
+                        blockchainData[network.chain].stablecoins.push({
+                            name: coin.name,
+                            ticker: coin.ticker,
+                            icon: coin.icon
+                        });
+                    });
+                });
+                
                 html += `
                 <section class="fade-in">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color:#0A2540;">${stablecoins.title}</h2>
                         <p class="text-lg section-description max-w-4xl mx-auto">${stablecoins.description}</p>
                     </div>
-                    <div id="stablecoinsContent" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        ${stablecoins.coins.map((coin, coinIdx) => `
-                        <div class="stablecoin-item">
-                            <div class="stablecoin-header">
-                                <img src="${coin.icon}" alt="${coin.name} logo">
+                    
+                    <!-- Instructional Text -->
+                    <div class="text-center mb-6">
+                        <p class="text-base font-medium text-[#0A2540] opacity-90">To pay, select the network your stablecoins are on:</p>
+                    </div>
+                    
+                    <div class="space-y-4 max-w-4xl mx-auto">
+                        ${Object.entries(blockchainData).map(([blockchain, data], index) => `
+                        <div class="glass-card p-0 overflow-hidden">
+                            <button class="blockchain-accordion-button w-full flex justify-between items-center p-6 text-left hover:bg-[#4aa6db]/10 transition-colors">
+                                <div class="flex items-center space-x-4">
+                                    <img src="${data.icon}" alt="${blockchain} logo" class="w-12 h-12 rounded-lg">
                                 <div>
-                                    <h3>${coin.name}</h3>
-                                    <div class="ticker">${coin.ticker}</div>
+                                        <h3 class="text-xl font-bold text-[#0A2540]">${blockchain}</h3>
                                 </div>
                             </div>
-                            <div class="blockchains-section">
-                                <h4 class="blockchains-title">Supported Blockchains</h4>
-                                <div class="blockchain-grid">
-                                    ${coin.networks.map((net, netIdx) => {
-                                      const walletCount = net.wallets.length;
-                                      const showMore = walletCount > 4;
-                                      const walletsHtml = net.wallets.map((wallet, wIdx) => `
-                                        <div class="wallet-item${wIdx > 3 ? ' hidden' : ''}">
-                                          <img src="${wallet.icon}" alt="${wallet.name} logo">
-                                          <span>${wallet.name}</span>
+                                <div class="flex items-center space-x-3">
+                                    <div class="flex -space-x-2">
+                                        ${data.stablecoins.slice(0, 4).map(coin => `
+                                            <img src="${coin.icon}" alt="${coin.ticker}" class="w-8 h-8 rounded-full border-2 border-white shadow-sm" title="${coin.name} (${coin.ticker})">
+                                        `).join('')}
+                                        ${data.stablecoins.length > 4 ? `
+                                            <div class="w-8 h-8 rounded-full bg-[#4aa6db] text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-sm">
+                                                +${data.stablecoins.length - 4}
                                         </div>
-                                      `).join('');
-                                      return `
-                                        <div class="blockchain-card" data-coin="${coinIdx}" data-net="${netIdx}">
-                                          <div class="blockchain-header">
-                                            <img src="${net.icon}" alt="${net.chain} logo">
-                                            <h4>${net.chain}</h4>
-                                            <svg class="blockchain-arrow w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        ` : ''}
+                                    </div>
+                                    <svg class="w-6 h-6 text-[#4aa6db]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                             </svg>
                                           </div>
-                                                                                  <div class="blockchain-wallets">
-                                            <div class="wallet-list">
-                                                ${walletsHtml}
+                            </button>
+                            <div class="blockchain-accordion-content max-h-0 overflow-hidden transition-all duration-300">
+                                <div class="p-6 border-t border-[#e2e8f0]">
+                                    <!-- Accepted Stablecoins -->
+                                    <div class="mb-6">
+                                        <h4 class="text-lg font-semibold text-[#0A2540] mb-4">Accepted Stablecoins on ${blockchain}</h4>
+                                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                            ${data.stablecoins.map(coin => `
+                                            <div class="flex items-center space-x-3 p-3 bg-white rounded-lg border border-[#e2e8f0] hover:shadow-md transition-shadow">
+                                                <img src="${coin.icon}" alt="${coin.name} logo" class="w-8 h-8 rounded-full">
+                                                <div>
+                                                    <div class="font-medium text-[#0A2540] text-sm">${coin.name}</div>
+                                                    <div class="text-xs text-[#4aa6db] font-semibold">${coin.ticker}</div>
                                             </div>
-                                            ${showMore ? `<button class="see-more-btn mt-2 text-[#4aa6db] font-semibold underline cursor-pointer">See More</button>` : ''}
-                                            <div class="wallet-note mt-3 p-3 bg-[#f4f8fb] border border-[#e2e8f0] rounded-lg">
-                                                <p class="text-sm text-[#0A2540] font-medium mb-1">💡 We accept all wallets on this blockchain</p>
-                                                <p class="text-xs text-[#64748b]">If your wallet supports ${coin.ticker} on ${net.chain}, you can use it to pay with Blokko.</p>
                                             </div>
+                                            `).join('')}
                                         </div>
                                         </div>
-                                      `;
-                                    }).join('')}
+                                    
+                                    <!-- Popular Compatible Wallets -->
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-[#0A2540] mb-4">Popular Compatible Wallets</h4>
+                                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                            ${data.wallets.map(wallet => `
+                                            <div class="flex items-center space-x-3 p-3 bg-white rounded-lg border border-[#e2e8f0] hover:shadow-md transition-shadow">
+                                                <img src="${wallet.icon}" alt="${wallet.name} logo" class="w-8 h-8 rounded-full">
+                                                <div class="font-medium text-[#0A2540] text-sm">${wallet.name}</div>
+                                </div>
+                                            `).join('')}
+                                        </div>
+                                        <div class="mt-4 p-3 bg-[#f4f8fb] border border-[#e2e8f0] rounded-lg">
+                                            <p class="text-sm text-[#0A2540] font-medium mb-1">💡 We accept all wallets on ${blockchain}</p>
+                                            <p class="text-xs text-[#64748b]">If your wallet supports stablecoins on ${blockchain}, you can use it to pay with Blokko.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1315,12 +1480,17 @@
                                         ${net.name === 'CoDi' ? "Blokko connects with Mexico's CoDi network, enabling you to pay from any app or digital wallet that supports CoDi payments." : ''}
                                     </p>
                                     ${net.wallets && net.wallets.length ? `
-                                    <div class="mt-6">
-                                        <h4 class="text-base font-semibold mb-2">Popular Wallets</h4>
-                                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center justify-center w-full max-w-[500px] mx-auto">
-                                            ${net.wallets.map(wallet => `
-                                                <div class="flex flex-col items-center"><img src="${wallet.icon}" alt="${wallet.name}" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs sm:text-sm md:text-base font-medium text-center block">${wallet.name}</span></div>
-                                            `).join('')}
+                                    <div class="mt-6 flex flex-col items-center w-full">
+                                        <button type="button" class="rtp-wallets-toggle flex items-center gap-2 text-base font-semibold mb-2 px-4 py-2 rounded-lg bg-[#f4f8fb] border border-[#e2e8f0] focus:outline-none focus:ring-2 focus:ring-[#4aa6db] mx-auto text-center" data-rtp="${net.name}">
+                                            Popular Wallets
+                                            <svg class="chevron w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                        </button>
+                                        <div class="rtp-wallets-dropdown hidden transition-all duration-200 w-full" data-rtp="${net.name}">
+                                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 items-center justify-center w-full max-w-[500px] mx-auto mt-3 text-center">
+                                                ${net.wallets.map(wallet => `
+                                                    <div class="flex flex-col items-center"><img src="${wallet.icon}" alt="${wallet.name}" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs sm:text-sm md:text-base font-medium text-center block">${wallet.name}</span></div>
+                                                `).join('')}
+                                            </div>
                                         </div>
                                     </div>
                                     ` : ''}
@@ -1334,9 +1504,22 @@
 
             container.innerHTML = html;
         setupCexCoinGrids(data.centralizedExchanges);
+        // Attach event listeners for RTP wallet dropdowns after rendering
+        document.querySelectorAll('.rtp-wallets-toggle').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const rtp = btn.getAttribute('data-rtp');
+            const dropdown = document.querySelector(`.rtp-wallets-dropdown[data-rtp='${rtp}']`);
+            const chevron = btn.querySelector('.chevron');
+            if (dropdown) {
+              dropdown.classList.toggle('hidden');
+              chevron.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+          });
+        });
         }
         
         function setupAccordion() {
+            // Setup CEX accordions
             const accordionButtons = document.querySelectorAll('.accordion-button');
             accordionButtons.forEach(button => {
                 button.addEventListener('click', () => {
@@ -1345,6 +1528,23 @@
 
                     if (content.style.maxHeight) {
                         content.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+            
+            // Setup blockchain accordions
+            const blockchainAccordionButtons = document.querySelectorAll('.blockchain-accordion-button');
+            blockchainAccordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('svg');
+
+                    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                        content.style.maxHeight = '0px';
                         icon.style.transform = 'rotate(0deg)';
                     } else {
                         content.style.maxHeight = content.scrollHeight + "px";
@@ -1375,15 +1575,12 @@
                         btn.style.display = 'block';
                         if (showAll) {
                             grid.style.maxHeight = '450px';
-                            grid.style.overflowY = 'auto';
                         } else {
                             grid.style.maxHeight = '';
-                            grid.style.overflowY = '';
                         }
                     } else {
                         btn.style.display = 'none';
                         grid.style.maxHeight = '';
-                        grid.style.overflowY = '';
                     }
                     btn.textContent = showAll ? 'Show Less' : 'Show More';
                     clearBtn.classList.toggle('hidden', !search.value);
@@ -1434,68 +1631,7 @@
                 const paymentData = await fetchPaymentMethods();
                 renderPaymentMethods(paymentData);
                 setupAccordion();
-                
-                // Initialize CEX dropdown functionality
-                const cexDropdownBtn = document.getElementById('cexDropdownBtn');
-                const cexDropdownList = document.getElementById('cexDropdownList');
-                const selectedCexName = document.getElementById('selectedCexName');
-                const selectedCexLogo = document.getElementById('selectedCexLogo');
-                const cexCoinGrid = document.getElementById('cexCoinGrid');
-                const cexShowMoreBtn = document.getElementById('cexShowMoreBtn');
-                const cexSearch = document.getElementById('cexSearch');
-
-                if (cexDropdownBtn && cexDropdownList && cexCoinGrid) {
-                    let currentCexIndex = 0;
-                    let showAllCoins = false;
-                    let searchTerm = '';
-
-                    function renderCexCoinGrid() {
-                        const coins = mockApiData.centralizedExchanges.exchanges[currentCexIndex].supported_coins;
-                        let filtered = coins.filter(c => c.name.toLowerCase().includes(searchTerm) || c.ticker.toLowerCase().includes(searchTerm));
-                        let toShow = showAllCoins ? filtered : filtered.slice(0, 20);
-                        cexCoinGrid.innerHTML = toShow.map(coin => `
-                            <div class="coin-card">
-                                <img src="${coin.icon}" alt="${coin.ticker}" style="width: 28px; height: 28px; border-radius: 50%; background: #fff; box-shadow: 0 1px 4px 0 rgba(10,37,64,0.10); margin-right: 0.75em;"> 
-                                <span>${coin.name}</span> 
-                                <span style="color:#4aa6db; font-weight: 600; margin-left: 0.5em;">(${coin.ticker})</span>
-                            </div>
-                        `).join('');
-                        cexShowMoreBtn.style.display = filtered.length > 20 ? 'block' : 'none';
-                        cexShowMoreBtn.textContent = showAllCoins ? 'Show Less' : 'Show More';
-                    }
-
-                    cexDropdownBtn.onclick = () => {
-                        cexDropdownList.style.display = cexDropdownList.style.display === 'block' ? 'none' : 'block';
-                    };
-                    
-                    [...cexDropdownList.children].forEach((item, idx) => {
-                        item.onclick = () => {
-                            currentCexIndex = idx;
-                            selectedCexName.textContent = mockApiData.centralizedExchanges.exchanges[idx].name;
-                            selectedCexLogo.src = mockApiData.centralizedExchanges.exchanges[idx].icon;
-                            cexDropdownList.style.display = 'none';
-                            showAllCoins = false;
-                            searchTerm = '';
-                            cexSearch.value = '';
-                            renderCexCoinGrid();
-                        };
-                    });
-                    
-                    cexShowMoreBtn.onclick = () => {
-                        showAllCoins = !showAllCoins;
-                        renderCexCoinGrid();
-                    };
-                    
-                    cexSearch.oninput = e => {
-                        searchTerm = e.target.value.toLowerCase();
-                        showAllCoins = false;
-                        renderCexCoinGrid();
-                    };
-                    
-                    // Initialize the grid
-                    renderCexCoinGrid();
-                }
-            
+                setupKycToggles();
                 // Add staggered animation delay to sections
                 const sections = document.querySelectorAll('.fade-in');
                 sections.forEach((section, index) => {
@@ -1518,132 +1654,86 @@
             }
         };
 
-        function setupStablecoinWalletDropdowns() {
-          document.querySelectorAll('.blockchain-header').forEach(header => {
-            header.addEventListener('click', function() {
-              const wallets = header.parentElement.querySelector('.blockchain-wallets');
-              const arrow = header.querySelector('.blockchain-arrow');
-              if (wallets.classList.contains('expanded')) {
-                wallets.classList.remove('expanded');
-                arrow.classList.remove('expanded');
-              } else {
-                wallets.classList.add('expanded');
-                arrow.classList.add('expanded');
+
+
+        // In setupAccordion or after renderPaymentMethods, add this JS to attach toggle logic:
+        function setupKycToggles() {
+          document.querySelectorAll('.kyc-toggle-link').forEach(link => {
+            const idx = link.getAttribute('data-exchange');
+            const info = document.querySelector(`.kyc-info-section[data-exchange='${idx}']`);
+            link.onclick = function(e) {
+              e.preventDefault();
+              if (info) {
+                info.classList.toggle('hidden');
+                link.textContent = info.classList.contains('hidden') ? 'ⓘ View KYC & Limits' : 'ⓧ Hide KYC & Limits';
               }
-            });
-          });
-          document.querySelectorAll('.see-more-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-              const walletList = btn.parentElement.querySelector('.wallet-list');
-              const walletItems = walletList.querySelectorAll('.wallet-item');
-              if (!walletList.classList.contains('expanded')) {
-                walletList.classList.add('expanded');
-                walletItems.forEach(item => item.classList.remove('hidden'));
-                btn.textContent = 'See Less';
-              } else {
-                walletList.classList.remove('expanded');
-                walletItems.forEach((item, idx) => {
-                  if (idx > 3) item.classList.add('hidden');
-                });
-                btn.textContent = 'See More';
-              }
-            });
-          });
+                        };
+                    });
         }
 
-        // --- INITIALIZATION ---
-        window.onload = async () => {
-            const loadingEl = document.getElementById('loading');
-            const contentEl = document.getElementById('payment-methods-container');
+        // Event delegation for KYC toggles and Action Bar functionality
+        document.addEventListener('click', function(e) {
+          if (e.target.matches('.kyc-toggle-link')) {
+            e.preventDefault();
+            console.log('KYC toggle clicked!');
+            const idx = e.target.getAttribute('data-exchange');
+            const ln = e.target.getAttribute('data-ln');
             
-            try {
-                const paymentData = await fetchPaymentMethods();
-                renderPaymentMethods(paymentData);
-                setupAccordion();
-                setupStablecoinWalletDropdowns();
+            if (idx) {
+              // CEX accordion KYC toggle
+              const accordionContent = e.target.closest('.accordion-content');
+              const info = accordionContent.querySelector('.kyc-info-section');
+              const accordionButton = accordionContent.previousElementSibling;
+              const accordionIcon = accordionButton.querySelector('svg');
+              
+              if (info) {
+                info.classList.toggle('hidden');
+                e.target.textContent = info.classList.contains('hidden') ? 'ⓘ View KYC & Limits' : 'ⓧ Hide KYC & Limits';
                 
-                // Initialize CEX dropdown functionality
-                const cexDropdownBtn = document.getElementById('cexDropdownBtn');
-                const cexDropdownList = document.getElementById('cexDropdownList');
-                const selectedCexName = document.getElementById('selectedCexName');
-                const selectedCexLogo = document.getElementById('selectedCexLogo');
-                const cexCoinGrid = document.getElementById('cexCoinGrid');
-                const cexShowMoreBtn = document.getElementById('cexShowMoreBtn');
-                const cexSearch = document.getElementById('cexSearch');
-
-                if (cexDropdownBtn && cexDropdownList && cexCoinGrid) {
-                    let currentCexIndex = 0;
-                    let showAllCoins = false;
-                    let searchTerm = '';
-
-                    function renderCexCoinGrid() {
-                        const coins = mockApiData.centralizedExchanges.exchanges[currentCexIndex].supported_coins;
-                        let filtered = coins.filter(c => c.name.toLowerCase().includes(searchTerm) || c.ticker.toLowerCase().includes(searchTerm));
-                        let toShow = showAllCoins ? filtered : filtered.slice(0, 20);
-                        cexCoinGrid.innerHTML = toShow.map(coin => `
-                            <div class="coin-card">
-                                <img src="${coin.icon}" alt="${coin.ticker}" style="width: 28px; height: 28px; border-radius: 50%; background: #fff; box-shadow: 0 1px 4px 0 rgba(10,37,64,0.10); margin-right: 0.75em;"> 
-                                <span>${coin.name}</span> 
-                                <span style="color:#4aa6db; font-weight: 600; margin-left: 0.5em;">(${coin.ticker})</span>
-                            </div>
-                        `).join('');
-                        cexShowMoreBtn.style.display = filtered.length > 20 ? 'block' : 'none';
-                        cexShowMoreBtn.textContent = showAllCoins ? 'Show Less' : 'Show More';
-                    }
-
-                    cexDropdownBtn.onclick = () => {
-                        cexDropdownList.style.display = cexDropdownList.style.display === 'block' ? 'none' : 'block';
-                    };
-                    
-                    [...cexDropdownList.children].forEach((item, idx) => {
-                        item.onclick = () => {
-                            currentCexIndex = idx;
-                            selectedCexName.textContent = mockApiData.centralizedExchanges.exchanges[idx].name;
-                            selectedCexLogo.src = mockApiData.centralizedExchanges.exchanges[idx].icon;
-                            cexDropdownList.style.display = 'none';
-                            showAllCoins = false;
-                            searchTerm = '';
-                            cexSearch.value = '';
-                            renderCexCoinGrid();
-                        };
-                    });
-                    
-                    cexShowMoreBtn.onclick = () => {
-                        showAllCoins = !showAllCoins;
-                        renderCexCoinGrid();
-                    };
-                    
-                    cexSearch.oninput = e => {
-                        searchTerm = e.target.value.toLowerCase();
-                        showAllCoins = false;
-                        renderCexCoinGrid();
-                    };
-                    
-                    // Initialize the grid
-                    renderCexCoinGrid();
+                // Update accordion height to accommodate KYC section
+                if (accordionContent.style.maxHeight && accordionContent.style.maxHeight !== '0px') {
+                  // Accordion is open, recalculate height
+                  setTimeout(() => {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                  }, 10);
                 }
-            
-                // Add staggered animation delay to sections
-                const sections = document.querySelectorAll('.fade-in');
-                sections.forEach((section, index) => {
-                    section.style.animationDelay = `${index * 0.2}s`;
-                });
-            } catch (error) {
-                console.error("Failed to load payment methods:", error);
-                contentEl.innerHTML = `
-                    <div class="text-center text-red-400">
-                        <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-                        </svg>
-                        <p class="text-xl">Could not load payment methods at this time.</p>
-                        <p class="text-gray-400">Please try again later.</p>
-                    </div>
-                `;
-            } finally {
-                loadingEl.classList.add('hidden');
-                contentEl.classList.remove('hidden');
+              } else {
+                console.log('No info section found for data-exchange:', idx);
+              }
+            } else if (ln) {
+              // Lightning Network KYC toggle
+              const lightningSection = e.target.closest('.glass-card');
+              const info = lightningSection.querySelector('.kyc-info-section');
+              if (info) {
+                info.classList.toggle('hidden');
+                e.target.textContent = info.classList.contains('hidden') ? 'ⓘ View KYC & Limits' : 'ⓧ Hide KYC & Limits';
+              } else {
+                console.log('No info section found for Lightning Network');
+              }
             }
-        };
+          }
+          
+          if (e.target.matches('.how-to-video-link')) {
+            e.preventDefault();
+            console.log('How-To Video clicked!');
+            // Add your video functionality here
+            alert('How-To Video functionality coming soon!');
+          }
+        });
+
+        document.querySelectorAll('.rtp-wallets-toggle').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const rtp = btn.getAttribute('data-rtp');
+            const dropdown = document.querySelector(`.rtp-wallets-dropdown[data-rtp='${rtp}']`);
+            const chevron = btn.querySelector('.chevron');
+            if (dropdown) {
+              dropdown.classList.toggle('hidden');
+              chevron.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+          });
+        });
     </script>
 </body>
 </html>
+
+
