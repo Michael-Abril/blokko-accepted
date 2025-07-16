@@ -44,11 +44,6 @@
             letter-spacing: -0.01em;
             margin-bottom: 0.5rem;
         }
-        .section-description {
-            color: #222;
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-        }
         .coin-card {
             transition: all 0.3s ease;
             background: #fff;
@@ -664,72 +659,35 @@
           color: #0A2540;
           box-shadow: 0 2px 8px 0 rgba(74,166,219,0.10);
         }
+        @media (max-width: 700px) {
+          html, body, * {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            box-sizing: border-box;
+            overflow-x: hidden;
+          }
+        }
     </style>
 </head>
 <body class="min-h-screen overflow-x-hidden">
-    <div class="container mx-auto px-4 py-8 md:py-16">
-        <!-- Blokko Logo Top Left -->
-        <div class="absolute left-0 top-0 p-6 z-20">
-          <img src="https://a10449bdfbfb3f01814a0ac8808e260a.cdn.bubble.io/cdn-cgi/image/w=192,h=83,f=auto,dpr=1,fit=contain/f1730063213960x236193636720462240/Blokko_io.png" alt="Blokko.io Logo" class="h-20 md:h-28" style="max-width:320px;">
-        </div>
-        <!-- Header Section -->
-        <header class="text-center mb-16 fade-in">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6" style="color:#0A2540;">Supported Payment Methods</h1>
-            <p class="text-xl text-[#0A2540] max-w-4xl mx-auto leading-relaxed">
-                Blokko enables merchants to accept payments from a wide variety of the world's most popular 
-                <span style="color:#4aa6db;font-weight:600;">digital wallets</span>, 
-                <span style="color:#4aa6db;font-weight:600;">exchanges</span>, and 
-                <span style="color:#4aa6db;font-weight:600;">payment networks</span>.
-            </p>
-        </header>
+    <!-- Blokko Logo Section (Always at Top, Centered) -->
+    <section class="w-full flex justify-center items-center py-8 bg-transparent text-center" style="margin-bottom:0;">
+      <img src="https://a10449bdfbfb3f01814a0ac8808e260a.cdn.bubble.io/cdn-cgi/image/w=192,h=83,f=auto,dpr=1,fit=contain/f1730063213960x236193636720462240/Blokko_io.png" alt="Blokko.io Logo" class="h-20 md:h-28 mx-auto block" style="max-width:320px;">
+    </section>
+    <section class="text-center mb-12">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6" style="color:#0A2540;">Accepted Payment Methods</h1>
+    </section>
+    <div class="w-full max-w-full flex flex-col justify-center px-4 py-8 md:py-16">
         <!-- Loading Spinner -->
         <div id="loading" class="flex justify-center items-center h-40">
             <div class="loader"></div>
         </div>
         <!-- Dynamic content will be injected here -->
-        <main id="payment-methods-container" class="hidden space-y-16">
+        <main id="payment-methods-container" class="space-y-8">
             <!-- Centralized Exchanges Section -->
             <section class="cex-section">
                 <div id="cexAccordionContainer"></div>
-            </section>
-
-            <!-- Real-Time Payments Section -->
-            <section class="rtp-section">
-                <h2>Real-Time Payments (RTP)</h2>
-                <div class="rtp-networks">
-                    <div class="rtp-network-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Logo_PIX.png" alt="Pix Logo" class="rtp-logo">
-                        <span>Pix (Brazil)</span>
-                    </div>
-                    <div class="rtp-network-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Logo_CoDi.png" alt="CoDi Logo" class="rtp-logo">
-                        <span>CoDi (Mexico)</span>
-                    </div>
-                </div>
-                <!-- For Pix (Brazil): -->
-                <div class="mt-6">
-                  <h3 class="text-lg font-semibold mb-2">Popular Pix Wallets</h3>
-                  <div class="flex flex-wrap gap-4 items-center justify-center">
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Nubank_logo_2021.svg" alt="Nubank" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Nubank</span></div>
-                    <div class="flex flex-col items-center"><img src="https://logodownload.org/wp-content/uploads/2019/11/picpay-logo-0.png" alt="PicPay" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">PicPay</span></div>
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Mercado_Pago_logo.svg" alt="Mercado Pago" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Mercado Pago</span></div>
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Itau_logo.png" alt="Itaú Unibanco" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Itaú Unibanco</span></div>
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Bradesco_logo.svg" alt="Bradesco" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Bradesco</span></div>
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Caixa_Economica_Federal_logo.svg" alt="Caixa Econômica Federal" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Caixa Econômica Federal</span></div>
-                  </div>
-                </div>
-                <!-- For CoDi (Mexico): -->
-                <div class="mt-6">
-                  <h3 class="text-lg font-semibold mb-2">Popular CoDi Wallets</h3>
-                  <div class="flex flex-wrap gap-4 items-center justify-center">
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/BBVA_2019_logo.svg" alt="BBVA México" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">BBVA México</span></div>
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Citibanamex_logo.svg" alt="Citibanamex" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Citibanamex</span></div>
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_Banco_Santander.svg" alt="Santander México" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Santander México</span></div>
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Banorte_logo.svg" alt="Banorte" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Banorte</span></div>
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Mercado_Pago_logo.svg" alt="Mercado Pago" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Mercado Pago</span></div>
-                    <div class="flex flex-col items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Banco_Azteca_logo.svg" alt="Banco Azteca" class="w-14 h-14 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs font-medium">Banco Azteca</span></div>
-                    </div>
-                </div>
             </section>
 
             <!-- Stablecoins Section -->
@@ -788,7 +746,33 @@
     </div>
     
     <!-- Footer -->
-    <footer class="mt-20 py-8 bg-gray-50 border-t border-gray-200">
+    <footer class="mt-20 bg-gray-50 border-t border-gray-200">
+        <!-- Key Benefits Section -->
+        <div class="py-12 border-b border-gray-200">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <span class="inline-block mb-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-[#4aa6db]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></span>
+                        <span class="font-bold text-lg">No Volatility</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="inline-block mb-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-[#4aa6db]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg></span>
+                        <span class="font-bold text-lg">No Chargebacks</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="inline-block mb-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-[#4aa6db]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></span>
+                        <span class="font-bold text-lg">Lower Risks</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="inline-block mb-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-[#4aa6db]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/><circle cx="12" cy="12" r="10"/></svg></span>
+                        <span class="font-bold text-lg">Lower Costs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Content -->
+        <div class="py-8">
         <div class="container mx-auto px-4">
             <p class="text-gray-600 text-sm mb-4 text-center">
                 Copyright © 2025 Blokko.io. All Rights Reserved.
@@ -991,7 +975,7 @@
         const mockApiData = {
             centralizedExchanges: {
                 title: "Centralized Exchanges (CEX)",
-                description: "Customers can pay directly from their accounts at major cryptocurrency exchanges. A key benefit of this method is that customers can use <strong>any cryptocurrency asset</strong> they hold in their exchange account. The exchange handles the real-time conversion to complete the payment.",
+                description: "",
                 exchanges: [
                     { 
                         name: "Crypto.com Pay", 
@@ -1141,44 +1125,6 @@
                         ]
                     }
                 ]
-            },
-            realTimePayments: {
-                title: "Real-Time Payments (RTP)",
-                description: "Blokko supports direct, real-time bank payments from customers in specific regions, using their local currency.",
-                networks: [
-                    {
-                        name: "Pix",
-                        country: "Brazil",
-                        flag: "🇧🇷",
-                        asset: "Brazilian Real (BRL)",
-                        description: "Instant payment system in Brazil",
-                        logo: "https://img.icons8.com/?size=512&id=Dk4sj0EM4b20&format=png",
-                        wallets: [
-                            { name: "Nubank", icon: "https://cdn.worldvectorlogo.com/logos/nubank-3.svg" },
-                            { name: "PicPay", icon: "https://static.wikia.nocookie.net/logopedia/images/b/b5/Picpayicon.jpg/revision/latest/scale-to-width-down/250?cb=20181222023507" },
-                            { name: "Mercado Pago", icon: "https://cdn.shopify.com/app-store/listing_images/71ecb1758a5c85014ad8353f3ac28b65/icon/CMPXra-c0IADEAE=.png" },
-                            { name: "Itaú Unibanco", icon: "https://static.stocktitan.net/company-logo/itub.png" },
-                            { name: "Bradesco", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST284IN_gT1tCcK0G0C6jIYhhaizx3Hyiq4Q&s" },
-                            { name: "Caixa Econômica Federal", icon: "https://www.pikpng.com/pngl/b/466-4667744_caixa-econmica-federal-clipart.png" }
-                        ]
-                    },
-                    {
-                        name: "CoDi",
-                        country: "Mexico",
-                        flag: "🇲🇽",
-                        asset: "Mexican Peso (MXN)",
-                        description: "Digital payment system in Mexico",
-                        logo: "https://play-lh.googleusercontent.com/EhQ0U7d6Sv3aBVW1eklqpgOCEiU3_WlfOOqhJ2gyhCYsEUgYsH_l8yhej5nMP1ctpck",
-                        wallets: [
-                            { name: "BBVA México", icon: "https://i.pinimg.com/474x/54/06/91/540691b868850e0f554c185cec6e8277.jpg" },
-                            { name: "Citibanamex", icon: "https://pbs.twimg.com/profile_images/1896573267420254208/H0-cFYwR_400x400.jpg" },
-                            { name: "Santander México", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmd1a8AhhRoA_BOK5_j_jWBFxbW96E5vQ3Wg&s" },
-                            { name: "Banorte", icon: "https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/gthkbvhbgohztffbgq4x" },
-                            { name: "Mercado Pago", icon: "https://cdn.shopify.com/app-store/listing_images/71ecb1758a5c85014ad8353f3ac28b65/icon/CMPXra-c0IADEAE=.png" },
-                            { name: "Banco Azteca", icon: "https://i0.wp.com/fourboxesinnovation.com/wp-content/uploads/2021/04/xBAIMG.png?ssl=1" }
-                        ]
-                    }
-                ]
             }
         };
 
@@ -1197,25 +1143,24 @@
                 const cex = data.centralizedExchanges;
                 html += `
                 <section class="fade-in">
-                    <div class="text-center mb-12">
-                        <h2 class="section-heading">${cex.title}</h2>
-                        <p class="section-description max-w-4xl mx-auto">${cex.description}</p>
-                    </div>
                     <div class="space-y-6 max-w-4xl mx-auto">
-                        ${cex.exchanges.map((ex, index) => `
-                            <div class="glass-card p-0 overflow-hidden max-w-4xl mx-auto">
-                                <button class="accordion-button w-full flex justify-between items-center p-6 text-left hover:bg-[#4aa6db]/10 transition-colors">
-                                    <div class="flex items-center space-x-4">
-                                        <img src="${ex.icon}" alt="${ex.name} logo" class="w-12 h-12 rounded-lg">
-                                        <div>
-                                            <h3 class="text-xl font-bold">${ex.name}</h3>
-                                            <p class="highlight text-sm">Any Listed Crypto is Accepted</p>
-                                        </div>
-                                    </div>
-                                    <svg class="w-6 h-6 text-[#4aa6db]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
+                        <!-- Section Heading inside the box -->
+                        <div class="glass-card p-6 max-w-4xl mx-auto">
+                            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 pb-4 border-b border-[#e2e8f0]" style="color:#0A2540;">${cex.title}</h2>
+                            <div class="space-y-4">
+                                ${cex.exchanges.map((ex, index) => `
+                                    <div class="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
+                                        <button class="accordion-button w-full flex justify-between items-center p-6 text-left hover:bg-[#4aa6db]/10 transition-colors">
+                                            <div class="flex items-center space-x-4">
+                                                <img src="${ex.icon}" alt="${ex.name} logo" class="w-12 h-12 rounded-lg">
+                                                <div>
+                                                    <h3 class="text-xl font-bold">${ex.name}</h3>
+                                                </div>
+                                            </div>
+                                            <svg class="w-6 h-6 text-[#4aa6db]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                            </svg>
+                                        </button>
                                 <div class="accordion-content">
                                     <div class="p-6 border-t border-[#e2e8f0]">
                                         <div class="relative">
@@ -1260,10 +1205,11 @@
                                         </div>
                                         </div>
                                     </div>
-                                </div>
-                            `).join('')}
+                                `).join('')}
+                            </div>
                         </div>
-                    </section>
+                    </div>
+                </section>
                 `;
             }
 
@@ -1272,18 +1218,13 @@
                 const ln = data.lightningNetwork;
                 html += `
                 <section class="fade-in">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color:#0A2540;">${ln.title}</h2>
-                        <p class="text-lg section-description max-w-4xl mx-auto">Blokko accepts <span class='highlight'>all wallets</span> that support the Lightning Network. Pay with your favorite Lightning wallet!</p>
-                    </div>
                     <div class="glass-card rounded-2xl p-8 max-w-4xl mx-auto">
-                        <div class="flex items-center justify-center mb-8">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Lightning_Network.svg" alt="Lightning Network logo" class="w-16 h-16 mr-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-[#0A2540]">Lightning Network</h3>
-                                <p class="text-[#4aa6db]">Instant Bitcoin Payments</p>
-                            </div>
+                        <!-- Section Heading with Logo -->
+                        <div class="flex items-center justify-center mb-6 pb-4 border-b border-[#e2e8f0]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Lightning_Network.svg" alt="Lightning Network logo" class="w-12 h-12 mr-4">
+                            <h2 class="text-3xl md:text-4xl font-bold" style="color:#0A2540;">${ln.title}</h2>
                         </div>
+                        
                         <!-- Action Bar -->
                         <div class="action-bar flex justify-between items-center py-3 mb-6 border-b border-[#e2e8f0]">
                             <a href="#" class="how-to-video-link text-[#4aa6db] text-sm font-medium flex items-center gap-1 hover:text-[#0A2540] transition-colors">
@@ -1293,6 +1234,7 @@
                                 ⓘ View KYC & Limits
                             </a>
                         </div>
+                        
                         <!-- KYC Info Box -->
                         <div class="kyc-info-section hidden bg-[#f4f8fb] border border-[#e2e8f0] rounded-lg p-6 mb-6">
                             <div class="font-bold text-[#0A2540] text-lg mb-4 text-center">KYC Requirements</div>
@@ -1316,22 +1258,18 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Dropdown for Lightning Wallets -->
-                        <div class="mt-6 flex flex-col items-center w-full">
-                            <button type="button" id="ln-wallets-toggle" class="flex items-center gap-2 text-base font-semibold mb-2 px-4 py-2 rounded-lg bg-[#f4f8fb] border border-[#e2e8f0] focus:outline-none focus:ring-2 focus:ring-[#4aa6db] mx-auto text-center">
-                                Show Lightning Wallets
-                                <svg class="chevron w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </button>
-                            <div id="ln-wallets-dropdown" class="hidden transition-all duration-200 w-full">
-                                <div class="grid grid-cols-2 gap-4 items-center justify-center w-full max-w-[600px] mx-auto mt-3 text-center">
-                                    ${ln.wallets.map(wallet => `
-                                        <div class="flex flex-col items-center bg-white rounded-xl border border-[#e2e8f0] p-4 shadow-sm hover:shadow-md transition-all">
-                                            <img src="${wallet.icon}" alt="${wallet.name} logo" class="w-12 h-12 rounded-lg mb-2">
-                                            <span class="font-semibold text-[#0A2540]">${wallet.name}</span>
-                                            <span class="text-xs text-[#4aa6db]">${wallet.description}</span>
-                                        </div>
-                                    `).join('')}
-                                </div>
+                        
+                        <!-- Popular Lightning Wallets -->
+                        <div class="mt-6">
+                            <h3 class="text-xl font-bold text-center mb-4 text-[#0A2540]">Popular Lightning Wallets</h3>
+                            <div class="grid grid-cols-2 gap-4 items-center justify-center w-full max-w-[600px] mx-auto text-center">
+                                ${ln.wallets.map(wallet => `
+                                    <div class="flex flex-col items-center bg-white rounded-xl border border-[#e2e8f0] p-4 shadow-sm hover:shadow-md transition-all">
+                                        <img src="${wallet.icon}" alt="${wallet.name} logo" class="w-12 h-12 rounded-lg mb-2">
+                                        <span class="font-semibold text-[#0A2540]">${wallet.name}</span>
+                                        <span class="text-xs text-[#4aa6db]">${wallet.description}</span>
+                                    </div>
+                                `).join('')}
                             </div>
                         </div>
                         <div class="wallet-note mt-6 p-3 bg-[#f4f8fb] border border-[#e2e8f0] rounded-lg">
@@ -1367,19 +1305,13 @@
                 
                 html += `
                 <section class="fade-in">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color:#0A2540;">${stablecoins.title}</h2>
-                        <p class="text-lg section-description max-w-4xl mx-auto">${stablecoins.description}</p>
-                    </div>
-                    
-                    <!-- Instructional Text -->
-                    <div class="text-center mb-6">
-                        <p class="text-base font-medium text-[#0A2540] opacity-90">To pay, select the network your stablecoins are on:</p>
-                    </div>
-                    
-                    <div class="space-y-4 max-w-4xl mx-auto">
-                        ${Object.entries(blockchainData).map(([blockchain, data], index) => `
-                        <div class="glass-card p-0 overflow-hidden">
+                    <div class="glass-card p-6 max-w-4xl mx-auto">
+                        <!-- Section Heading -->
+                        <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 pb-4 border-b border-[#e2e8f0]" style="color:#0A2540;">${stablecoins.title}</h2>
+                        
+                        <div class="space-y-4">
+                            ${Object.entries(blockchainData).map(([blockchain, data], index) => `
+                            <div class="bg-white border border-[#e2e8f0] rounded-lg overflow-hidden">
                             <button class="blockchain-accordion-button w-full flex justify-between items-center p-6 text-left hover:bg-[#4aa6db]/10 transition-colors">
                                 <div class="flex items-center space-x-4">
                                     <img src="${data.icon}" alt="${blockchain} logo" class="w-12 h-12 rounded-lg">
@@ -1441,76 +1373,14 @@
                             </div>
                         </div>
                         `).join('')}
+                        </div>
                     </div>
                 </section>
                 `;
             }
 
-        // 4. Real-Time Payments (Enhanced Cards)
-            if (data.realTimePayments) {
-                const rtp = data.realTimePayments;
-                html += `
-                <section class="fade-in">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color:#0A2540;">${rtp.title}</h2>
-                        <p class="text-lg section-description max-w-4xl mx-auto">${rtp.description}</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                                    ${rtp.networks.map(net => `
-                            <div class="glass-card rounded-2xl p-8 text-center hover:bg-white/5 transition-all max-w-[900px] mx-auto">
-                                <div class="flex flex-col items-center space-y-4">
-                                    <img src="${net.logo}" alt="${net.name} logo" class="h-16 w-auto max-w-[120px]">
-                                    <h3 class="text-2xl font-bold text-[#0A2540]">${net.name}</h3>
-                                    <p class="text-lg text-[#4aa6db] font-semibold flex items-center justify-center gap-2">
-                                      ${net.country}
-                                      ${net.country === 'Brazil' ? '<img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg" alt="Brazilian flag" style="height:20px;width:30px;display:inline;vertical-align:middle;border-radius:3px;">' : ''}
-                                      ${net.country === 'Mexico' ? '<img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg" alt="Mexican flag" style="height:20px;width:30px;display:inline;vertical-align:middle;border-radius:3px;">' : ''}
-                                    </p>
-                                    <div class="bg-[#4aa6db]/10 rounded-lg px-4 py-2">
-                                        <div class="text-lg font-semibold text-[#0A2540]">${net.asset}</div>
-                                </div>
-                                    <p class="text-sm text-[#0A2540] opacity-80 max-w-xs">${net.description}</p>
-                                    <p class="text-base text-[#0A2540] font-medium mt-2 mb-2">
-                                        ${net.name === 'Pix' ? "Blokko connects with Brazil's Pix network, enabling you to pay from any app or digital wallet that supports Pix payments." : ''}
-                                        ${net.name === 'CoDi' ? "Blokko connects with Mexico's CoDi network, enabling you to pay from any app or digital wallet that supports CoDi payments." : ''}
-                                    </p>
-                                    ${net.wallets && net.wallets.length ? `
-                                    <div class="mt-6 flex flex-col items-center w-full">
-                                        <button type="button" class="rtp-wallets-toggle flex items-center gap-2 text-base font-semibold mb-2 px-4 py-2 rounded-lg bg-[#f4f8fb] border border-[#e2e8f0] focus:outline-none focus:ring-2 focus:ring-[#4aa6db] mx-auto text-center" data-rtp="${net.name}">
-                                            Popular Wallets
-                                            <svg class="chevron w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                        </button>
-                                        <div class="rtp-wallets-dropdown hidden transition-all duration-200 w-full" data-rtp="${net.name}">
-                                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 items-center justify-center w-full max-w-[500px] mx-auto mt-3 text-center">
-                                                ${net.wallets.map(wallet => `
-                                                    <div class="flex flex-col items-center"><img src="${wallet.icon}" alt="${wallet.name}" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white object-contain border"/><span class="mt-1 text-xs sm:text-sm md:text-base font-medium text-center block">${wallet.name}</span></div>
-                                                `).join('')}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    ` : ''}
-                                </div>
-                            </div>
-                                    `).join('')}
-                        </div>
-                    </section>
-                `;
-            }
-
             container.innerHTML = html;
         setupCexCoinGrids(data.centralizedExchanges);
-        // Attach event listeners for RTP wallet dropdowns after rendering
-        document.querySelectorAll('.rtp-wallets-toggle').forEach(btn => {
-          btn.addEventListener('click', function() {
-            const rtp = btn.getAttribute('data-rtp');
-            const dropdown = document.querySelector(`.rtp-wallets-dropdown[data-rtp='${rtp}']`);
-            const chevron = btn.querySelector('.chevron');
-            if (dropdown) {
-              dropdown.classList.toggle('hidden');
-              chevron.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-            }
-          });
-        });
         }
         
         function setupAccordion() {
@@ -1626,7 +1496,6 @@
                 const paymentData = await fetchPaymentMethods();
                 renderPaymentMethods(paymentData);
                 setupAccordion();
-                setupKycToggles();
                 // Add staggered animation delay to sections
                 const sections = document.querySelectorAll('.fade-in');
                 sections.forEach((section, index) => {
@@ -1649,45 +1518,32 @@
             }
         };
 
-
-
-        // In setupAccordion or after renderPaymentMethods, add this JS to attach toggle logic:
-        function setupKycToggles() {
-          document.querySelectorAll('.kyc-toggle-link').forEach(link => {
-            const idx = link.getAttribute('data-exchange');
-            const info = document.querySelector(`.kyc-info-section[data-exchange='${idx}']`);
-            link.onclick = function(e) {
-              e.preventDefault();
-              if (info) {
-                info.classList.toggle('hidden');
-                link.textContent = info.classList.contains('hidden') ? 'ⓘ View KYC & Limits' : 'ⓧ Hide KYC & Limits';
-              }
-                        };
-                    });
-        }
-
         // Event delegation for KYC toggles and Action Bar functionality
         document.addEventListener('click', function(e) {
           if (e.target.matches('.kyc-toggle-link')) {
             e.preventDefault();
-            console.log('KYC toggle clicked!');
             const idx = e.target.getAttribute('data-exchange');
             const ln = e.target.getAttribute('data-ln');
-            
             if (idx) {
               // CEX accordion KYC toggle
-              const accordionContent = e.target.closest('.accordion-content');
-              const info = accordionContent.querySelector('.kyc-info-section');
-              const accordionButton = accordionContent.previousElementSibling;
-              const accordionIcon = accordionButton.querySelector('svg');
-              
+              let accordionContent = e.target.closest('.accordion-content');
+              let info = accordionContent ? accordionContent.querySelector('.kyc-info-section') : null;
+              if (!info) {
+                // Fallback: search by data-exchange attribute
+                info = document.querySelector('.kyc-info-section[data-exchange="' + idx + '"]');
+              }
+              if (accordionContent && accordionContent.style.maxHeight === '' || accordionContent.style.maxHeight === '0px') {
+                // Open the accordion if it's closed
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                const accordionButton = accordionContent.previousElementSibling;
+                const accordionIcon = accordionButton.querySelector('svg');
+                if (accordionIcon) accordionIcon.style.transform = 'rotate(180deg)';
+              }
               if (info) {
                 info.classList.toggle('hidden');
                 e.target.textContent = info.classList.contains('hidden') ? 'ⓘ View KYC & Limits' : 'ⓧ Hide KYC & Limits';
-                
                 // Update accordion height to accommodate KYC section
-                if (accordionContent.style.maxHeight && accordionContent.style.maxHeight !== '0px') {
-                  // Accordion is open, recalculate height
+                if (accordionContent && accordionContent.style.maxHeight && accordionContent.style.maxHeight !== '0px') {
                   setTimeout(() => {
                     accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
                   }, 10);
@@ -1698,7 +1554,7 @@
             } else if (ln) {
               // Lightning Network KYC toggle
               const lightningSection = e.target.closest('.glass-card');
-              const info = lightningSection.querySelector('.kyc-info-section');
+              const info = lightningSection ? lightningSection.querySelector('.kyc-info-section') : null;
               if (info) {
                 info.classList.toggle('hidden');
                 e.target.textContent = info.classList.contains('hidden') ? 'ⓘ View KYC & Limits' : 'ⓧ Hide KYC & Limits';
@@ -1716,32 +1572,9 @@
           }
         });
 
-        document.querySelectorAll('.rtp-wallets-toggle').forEach(btn => {
-          btn.addEventListener('click', function() {
-            const rtp = btn.getAttribute('data-rtp');
-            const dropdown = document.querySelector(`.rtp-wallets-dropdown[data-rtp='${rtp}']`);
-            const chevron = btn.querySelector('.chevron');
-            if (dropdown) {
-              dropdown.classList.toggle('hidden');
-              chevron.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-            }
-          });
-        });
 
-        // Add Lightning Network dropdown toggle logic
-        document.addEventListener('click', function(e) {
-          // ... existing code ...
-          // Lightning Network dropdown toggle
-          if (e.target.id === 'ln-wallets-toggle' || (e.target.closest && e.target.closest('#ln-wallets-toggle'))) {
-            const btn = document.getElementById('ln-wallets-toggle');
-            const dropdown = document.getElementById('ln-wallets-dropdown');
-            const chevron = btn.querySelector('.chevron');
-            if (dropdown) {
-              dropdown.classList.toggle('hidden');
-              chevron.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-            }
-          }
-        });
+
+
     </script>
 </body>
 </html>
