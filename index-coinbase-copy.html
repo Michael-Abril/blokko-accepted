@@ -11,6 +11,10 @@
             font-family: 'Inter', sans-serif;
             background: radial-gradient(circle at 50% 50%, #8dd9fb 0%, #ffffff 100%);
             color: #0A2540;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
         :root {
             --blokko-primary: #4aa6db;
@@ -591,65 +595,295 @@
           border-radius: 50%;
         }
         
-        @media (max-width: 700px) {
-          .rtp-networks, .stablecoin-networks {
-            flex-direction: column;
-            gap: 1em;
-            align-items: center;
-          }
-          .cex-section, .rtp-section, .stablecoins-section {
-            padding: 1em;
-          }
-          .coin-grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
-          .coin-grid .coin-card {
-            padding: 0.75em;
-          }
-          .coin-grid .coin-card img {
-            width: 24px;
-            height: 24px;
-          }
-          .blockchain-grid {
-            gap: 0.75rem;
-          }
-          .stablecoin-header {
-            padding: 1rem;
-          }
-          .stablecoin-header img {
-            width: 40px;
-            height: 40px;
-          }
-          .stablecoin-header h3 {
-            font-size: 1.25rem;
-          }
-          .blockchains-section {
-            padding: 1.5rem;
-          }
-          .wallet-list {
-            gap: 0.5rem;
-          }
-          .wallet-item {
-            padding: 0.4rem 0.6rem;
-            font-size: 0.8rem;
+        /* Force exact same layout across all devices */
+        @media (max-width: 1024px) {
+          /* Reset all responsive changes and force desktop layout */
+          * {
+            box-sizing: border-box !important;
           }
           
-          /* Mobile KYC Layout - 2 columns, 2 rows */
+          /* Force container width */
+          .w-full.max-w-full {
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 0 2rem !important;
+          }
+          
+          /* Force main heading size */
+          .text-4xl.md\:text-6xl {
+            font-size: 3.75rem !important;
+            line-height: 1 !important;
+          }
+          
+          /* Force glass card layout */
+          .glass-card {
+            padding: 2rem !important;
+            margin: 2rem auto !important;
+            max-width: 900px !important;
+            border-radius: 1.25rem !important;
+          }
+          
+          /* Force section headings */
+          .glass-card h2 {
+            font-size: 2.25rem !important;
+            margin-bottom: 1.5rem !important;
+          }
+          
+          /* Force action bar layout */
+          .action-bar {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 1rem 0 !important;
+            margin-bottom: 1.5rem !important;
+          }
+          
+          .action-bar a {
+            font-size: 1rem !important;
+            padding: 0.5rem 1rem !important;
+          }
+          
+          /* Force KYC section layout */
+          .kyc-info-section {
+            padding: 1.5rem !important;
+            margin-bottom: 1.5rem !important;
+          }
+          
           .kyc-info-section .grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 1rem !important;
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 1.5rem !important;
           }
+          
           .kyc-info-section .grid > div {
-            padding: 0.75rem !important;
+            padding: 1.5rem !important;
           }
+          
           .kyc-info-section .text-2xl {
-            font-size: 1.25rem !important;
+            font-size: 1.5rem !important;
           }
+          
           .kyc-info-section .text-base {
+            font-size: 1rem !important;
+          }
+          
+          .kyc-info-section .text-sm {
             font-size: 0.875rem !important;
           }
-          .kyc-info-section .text-sm {
+          
+          /* Force dropdown button layout */
+          .lightning-wallets-button,
+          .cex-accordion-button,
+          .blockchain-accordion-button {
+            padding: 1.5rem !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+          }
+          
+          .lightning-wallets-button h3,
+          .cex-accordion-button h3,
+          .blockchain-accordion-button h3 {
+            font-size: 1.25rem !important;
+          }
+          
+          .lightning-wallets-button p,
+          .cex-accordion-button p,
+          .blockchain-accordion-button p {
+            font-size: 0.875rem !important;
+          }
+          
+          /* Force coin grid layout */
+          .coin-grid {
+            display: grid !important;
+            grid-template-columns: repeat(5, 1fr) !important;
+            gap: 1rem !important;
+          }
+          
+          .coin-grid .coin-card {
+            padding: 1rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          
+          .coin-grid .coin-card img {
+            width: 32px !important;
+            height: 32px !important;
+            margin-bottom: 0.5rem !important;
+          }
+          
+          .coin-grid .coin-card .text-sm {
+            font-size: 0.875rem !important;
+            font-weight: 600 !important;
+          }
+          
+          .coin-grid .coin-card .text-xs {
             font-size: 0.75rem !important;
+            font-weight: 600 !important;
+          }
+          
+          /* Force search bar layout */
+          .search-bar {
+            height: 44px !important;
+            font-size: 1rem !important;
+            padding: 0.5rem 2.5rem 0.5rem 1.5rem !important;
+            width: 100% !important;
+          }
+          
+          /* Force show more button */
+          .show-more-btn {
+            padding: 0.5rem 1.5rem !important;
+            font-size: 1rem !important;
+            margin: 0.5rem auto !important;
+            display: block !important;
+          }
+          
+          /* Force lightning wallets grid */
+          .lightning-wallets-content .grid {
+            display: grid !important;
+            grid-template-columns: repeat(5, 1fr) !important;
+            gap: 1rem !important;
+          }
+          
+          .lightning-wallets-content .grid > div {
+            padding: 1rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          
+          .lightning-wallets-content .grid img {
+            width: 48px !important;
+            height: 48px !important;
+            margin-bottom: 0.5rem !important;
+          }
+          
+          .lightning-wallets-content .grid .text-sm {
+            font-size: 0.875rem !important;
+            font-weight: 600 !important;
+          }
+          
+          .lightning-wallets-content .grid .text-xs {
+            font-size: 0.75rem !important;
+          }
+          
+          /* Force wallet note layout */
+          .wallet-note {
+            padding: 1.5rem 2rem !important;
+            margin-top: 1.5rem !important;
+          }
+          
+          .wallet-note p {
+            font-size: 1.25rem !important;
+            line-height: 1.15 !important;
+            font-weight: 900 !important;
+          }
+          
+          /* Force footer layout */
+          footer .grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 2rem !important;
+          }
+          
+          footer .flex.space-x-6 {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 1.5rem !important;
+          }
+          
+          footer .flex.justify-between {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+          }
+          
+          /* Force blockchain section layout */
+          .blockchain-grid {
+            gap: 1rem !important;
+          }
+          
+          .blockchain-card {
+            padding: 1.5rem !important;
+          }
+          
+          .blockchain-header h4 {
+            font-size: 1.125rem !important;
+          }
+          
+          .wallet-list {
+            gap: 0.75rem !important;
+          }
+          
+          .wallet-item {
+            padding: 0.5rem 0.75rem !important;
+            font-size: 0.875rem !important;
+          }
+          
+          /* Force stablecoin section layout */
+          .stablecoin-header {
+            padding: 1.5rem !important;
+          }
+          
+          .stablecoin-header img {
+            width: 48px !important;
+            height: 48px !important;
+          }
+          
+          .stablecoin-header h3 {
+            font-size: 1.5rem !important;
+          }
+          
+          .blockchains-section {
+            padding: 2rem !important;
+          }
+          
+          /* Force section spacing */
+          .space-y-8 > * + * {
+            margin-top: 2rem !important;
+          }
+          
+          .space-y-6 > * + * {
+            margin-top: 1.5rem !important;
+          }
+          
+          .space-y-4 > * + * {
+            margin-top: 1rem !important;
+          }
+        }
+        
+        /* Override any other responsive breakpoints to maintain consistency */
+        @media (max-width: 480px) {
+          /* Force same layout as desktop */
+          .coin-grid {
+            grid-template-columns: repeat(5, 1fr) !important;
+          }
+          
+          .kyc-info-section .grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+          
+          .lightning-wallets-content .grid {
+            grid-template-columns: repeat(5, 1fr) !important;
+          }
+        }
+        
+        @media (max-width: 768px) and (orientation: landscape) {
+          /* Force same layout as desktop */
+          .coin-grid {
+            grid-template-columns: repeat(5, 1fr) !important;
+          }
+          
+          .kyc-info-section .grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+          
+          .lightning-wallets-content .grid {
+            grid-template-columns: repeat(5, 1fr) !important;
           }
         }
         .search-clear-btn {
@@ -677,13 +911,587 @@
           color: #0A2540;
           box-shadow: 0 2px 8px 0 rgba(74,166,219,0.10);
         }
+        /* Mobile-specific fixes to ensure content fits and is centered */
         @media (max-width: 700px) {
-          html, body, * {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            box-sizing: border-box;
-            overflow-x: hidden;
+          /* Ensure proper viewport handling */
+          html, body {
+            width: 100% !important;
+            overflow-x: hidden !important;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+          
+          /* Adjust container for mobile */
+          .w-full.max-w-full {
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 0 1rem !important;
+          }
+          
+          /* Adjust glass cards for mobile */
+          .glass-card {
+            padding: 1rem !important;
+            margin: 1rem 0 !important;
+            max-width: 100% !important;
+            border-radius: 1rem !important;
+          }
+          
+          /* Scale down main heading for mobile */
+          .text-4xl.md\:text-6xl {
+            font-size: 2rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          /* Scale down section headings */
+          .glass-card h2 {
+            font-size: 1.5rem !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          /* Adjust action bar for mobile */
+          .action-bar {
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+            align-items: flex-start !important;
+            padding: 0.75rem 0 !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .action-bar a {
+            font-size: 0.875rem !important;
+            padding: 0.5rem 0 !important;
+          }
+          
+          /* Adjust KYC section for mobile */
+          .kyc-info-section {
+            padding: 1rem !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .kyc-info-section .grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.75rem !important;
+          }
+          
+          .kyc-info-section .grid > div {
+            padding: 0.75rem !important;
+          }
+          
+          .kyc-info-section .text-2xl {
+            font-size: 1.125rem !important;
+          }
+          
+          .kyc-info-section .text-base {
+            font-size: 0.75rem !important;
+          }
+          
+          .kyc-info-section .text-sm {
+            font-size: 0.625rem !important;
+          }
+          
+          /* Adjust dropdown buttons for mobile */
+          .lightning-wallets-button,
+          .cex-accordion-button,
+          .blockchain-accordion-button {
+            padding: 1rem !important;
+          }
+          
+          .lightning-wallets-button h3,
+          .cex-accordion-button h3,
+          .blockchain-accordion-button h3 {
+            font-size: 1rem !important;
+          }
+          
+          .lightning-wallets-button p,
+          .cex-accordion-button p,
+          .blockchain-accordion-button p {
+            font-size: 0.75rem !important;
+          }
+          
+          /* Adjust coin grid for mobile */
+          .coin-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 0.5rem !important;
+          }
+          
+          .coin-grid .coin-card {
+            padding: 0.5rem !important;
+          }
+          
+          .coin-grid .coin-card img {
+            width: 20px !important;
+            height: 20px !important;
+          }
+          
+          .coin-grid .coin-card .text-sm {
+            font-size: 0.75rem !important;
+          }
+          
+          .coin-grid .coin-card .text-xs {
+            font-size: 0.625rem !important;
+          }
+          
+          /* Adjust search bar for mobile */
+          .search-bar {
+            height: 40px !important;
+            font-size: 0.875rem !important;
+            padding: 0.5rem 2rem 0.5rem 1rem !important;
+          }
+          
+          /* Adjust show more button for mobile */
+          .show-more-btn {
+            padding: 0.5rem 1rem !important;
+            font-size: 0.875rem !important;
+            margin: 0.5rem auto !important;
+          }
+          
+          /* Adjust lightning wallets grid for mobile */
+          .lightning-wallets-content .grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.75rem !important;
+          }
+          
+          .lightning-wallets-content .grid > div {
+            padding: 0.75rem !important;
+          }
+          
+          .lightning-wallets-content .grid img {
+            width: 32px !important;
+            height: 32px !important;
+          }
+          
+          .lightning-wallets-content .grid .text-sm {
+            font-size: 0.75rem !important;
+          }
+          
+          .lightning-wallets-content .grid .text-xs {
+            font-size: 0.625rem !important;
+          }
+          
+          /* Adjust wallet note for mobile */
+          .wallet-note {
+            padding: 1rem !important;
+            margin-top: 1rem !important;
+          }
+          
+          .wallet-note p {
+            font-size: 1rem !important;
+            line-height: 1.3 !important;
+          }
+          
+          /* Adjust footer for mobile */
+          footer .grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 1rem !important;
+          }
+          
+          footer .flex.space-x-6 {
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+          }
+          
+          footer .flex.justify-between {
+            flex-direction: column !important;
+            gap: 1rem !important;
+            align-items: center !important;
+          }
+          
+          /* Adjust blockchain section for mobile */
+          .blockchain-grid {
+            gap: 0.75rem !important;
+          }
+          
+          .blockchain-card {
+            padding: 1rem !important;
+          }
+          
+          .blockchain-header h4 {
+            font-size: 1rem !important;
+          }
+          
+          .wallet-list {
+            gap: 0.5rem !important;
+          }
+          
+          .wallet-item {
+            padding: 0.4rem 0.6rem !important;
+            font-size: 0.75rem !important;
+          }
+          
+          /* Adjust stablecoin section for mobile */
+          .stablecoin-header {
+            padding: 1rem !important;
+          }
+          
+          .stablecoin-header img {
+            width: 32px !important;
+            height: 32px !important;
+          }
+          
+          .stablecoin-header h3 {
+            font-size: 1.125rem !important;
+          }
+          
+          .blockchains-section {
+            padding: 1rem !important;
+          }
+          
+          /* Ensure proper spacing */
+          .space-y-8 > * + * {
+            margin-top: 1rem !important;
+          }
+          
+          .space-y-6 > * + * {
+            margin-top: 0.75rem !important;
+          }
+          
+          .space-y-4 > * + * {
+            margin-top: 0.5rem !important;
+          }
+        }
+        
+        /* Medium-small devices (between 700px and 500px) */
+        @media (max-width: 700px) and (min-width: 500px) {
+          .w-full.max-w-full {
+            padding: 0 1.5rem !important;
+          }
+          
+          .glass-card {
+            padding: 1.5rem !important;
+            margin: 1.5rem 0 !important;
+          }
+          
+          .coin-grid {
+            grid-template-columns: repeat(4, 1fr) !important;
+          }
+          
+          .kyc-info-section .grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+          
+          .lightning-wallets-content .grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+        }
+        
+        /* Small devices (between 500px and 400px) */
+        @media (max-width: 500px) and (min-width: 400px) {
+          .w-full.max-w-full {
+            padding: 0 1rem !important;
+          }
+          
+          .glass-card {
+            padding: 1rem !important;
+            margin: 1rem 0 !important;
+          }
+          
+          .coin-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+          
+          .kyc-info-section .grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+          
+          .lightning-wallets-content .grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        
+        /* Extra small devices (below 400px) */
+        @media (max-width: 400px) {
+          .w-full.max-w-full {
+            padding: 0 0.5rem !important;
+          }
+          
+          .glass-card {
+            padding: 0.75rem !important;
+            margin: 0.75rem 0 !important;
+          }
+          
+          .coin-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+          
+          .kyc-info-section .grid {
+            grid-template-columns: repeat(1, 1fr) !important;
+          }
+          
+          .lightning-wallets-content .grid {
+            grid-template-columns: repeat(1, 1fr) !important;
+          }
+          
+          .action-bar {
+            padding: 0.5rem 0 !important;
+          }
+          
+          /* Scale down text further for very small screens */
+          .text-4xl.md\:text-6xl {
+            font-size: 1.5rem !important;
+          }
+          
+          .glass-card h2 {
+            font-size: 1.25rem !important;
+          }
+          
+          .action-bar a {
+            font-size: 0.75rem !important;
+          }
+          
+          .coin-grid .coin-card .text-sm {
+            font-size: 0.625rem !important;
+          }
+          
+          .coin-grid .coin-card .text-xs {
+            font-size: 0.5rem !important;
+          }
+          
+          .search-bar {
+            height: 36px !important;
+            font-size: 0.75rem !important;
+          }
+          
+          .show-more-btn {
+            padding: 0.4rem 0.8rem !important;
+            font-size: 0.75rem !important;
+          }
+          
+          .wallet-note p {
+            font-size: 0.875rem !important;
+          }
+        }
+        
+        /* Specific fix for 452px width and similar small widths */
+        @media (max-width: 460px) {
+          /* Ensure proper container sizing */
+          .w-full.max-w-full {
+            padding: 0 0.75rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          
+          /* Adjust glass cards for very small screens */
+          .glass-card {
+            padding: 0.75rem !important;
+            margin: 0.75rem 0 !important;
+            border-radius: 0.75rem !important;
+          }
+          
+          /* Scale down headings further */
+          .text-4xl.md\:text-6xl {
+            font-size: 1.75rem !important;
+            line-height: 1.1 !important;
+            margin-bottom: 0.75rem !important;
+          }
+          
+          .glass-card h2 {
+            font-size: 1.375rem !important;
+            margin-bottom: 0.75rem !important;
+          }
+          
+          /* Adjust action bar for very small screens */
+          .action-bar {
+            flex-direction: column !important;
+            gap: 0.25rem !important;
+            padding: 0.5rem 0 !important;
+            margin-bottom: 0.75rem !important;
+          }
+          
+          .action-bar a {
+            font-size: 0.75rem !important;
+            padding: 0.25rem 0 !important;
+          }
+          
+          /* Adjust KYC section for very small screens */
+          .kyc-info-section {
+            padding: 0.75rem !important;
+            margin-bottom: 0.75rem !important;
+          }
+          
+          .kyc-info-section .grid {
+            grid-template-columns: repeat(1, 1fr) !important;
+            gap: 0.5rem !important;
+          }
+          
+          .kyc-info-section .grid > div {
+            padding: 0.5rem !important;
+          }
+          
+          .kyc-info-section .text-2xl {
+            font-size: 1rem !important;
+          }
+          
+          .kyc-info-section .text-base {
+            font-size: 0.625rem !important;
+          }
+          
+          .kyc-info-section .text-sm {
+            font-size: 0.5rem !important;
+          }
+          
+          /* Adjust dropdown buttons for very small screens */
+          .lightning-wallets-button,
+          .cex-accordion-button,
+          .blockchain-accordion-button {
+            padding: 0.75rem !important;
+          }
+          
+          .lightning-wallets-button h3,
+          .cex-accordion-button h3,
+          .blockchain-accordion-button h3 {
+            font-size: 0.875rem !important;
+          }
+          
+          .lightning-wallets-button p,
+          .cex-accordion-button p,
+          .blockchain-accordion-button p {
+            font-size: 0.625rem !important;
+          }
+          
+          /* Adjust coin grid for very small screens */
+          .coin-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.25rem !important;
+          }
+          
+          .coin-grid .coin-card {
+            padding: 0.25rem !important;
+          }
+          
+          .coin-grid .coin-card img {
+            width: 16px !important;
+            height: 16px !important;
+          }
+          
+          .coin-grid .coin-card .text-sm {
+            font-size: 0.5rem !important;
+          }
+          
+          .coin-grid .coin-card .text-xs {
+            font-size: 0.375rem !important;
+          }
+          
+          /* Adjust search bar for very small screens */
+          .search-bar {
+            height: 32px !important;
+            font-size: 0.75rem !important;
+            padding: 0.25rem 1.5rem 0.25rem 0.75rem !important;
+          }
+          
+          /* Adjust show more button for very small screens */
+          .show-more-btn {
+            padding: 0.25rem 0.75rem !important;
+            font-size: 0.75rem !important;
+            margin: 0.25rem auto !important;
+          }
+          
+          /* Adjust lightning wallets grid for very small screens */
+          .lightning-wallets-content .grid {
+            grid-template-columns: repeat(1, 1fr) !important;
+            gap: 0.5rem !important;
+          }
+          
+          .lightning-wallets-content .grid > div {
+            padding: 0.5rem !important;
+          }
+          
+          .lightning-wallets-content .grid img {
+            width: 24px !important;
+            height: 24px !important;
+          }
+          
+          .lightning-wallets-content .grid .text-sm {
+            font-size: 0.625rem !important;
+          }
+          
+          .lightning-wallets-content .grid .text-xs {
+            font-size: 0.5rem !important;
+          }
+          
+          /* Adjust wallet note for very small screens */
+          .wallet-note {
+            padding: 0.75rem !important;
+            margin-top: 0.75rem !important;
+          }
+          
+          .wallet-note p {
+            font-size: 0.75rem !important;
+            line-height: 1.2 !important;
+          }
+          
+          /* Adjust footer for very small screens */
+          footer .grid {
+            grid-template-columns: repeat(1, 1fr) !important;
+            gap: 0.75rem !important;
+          }
+          
+          footer .flex.space-x-6 {
+            flex-direction: column !important;
+            gap: 0.25rem !important;
+          }
+          
+          footer .flex.justify-between {
+            flex-direction: column !important;
+            gap: 0.75rem !important;
+            align-items: center !important;
+          }
+          
+          /* Ensure proper spacing for very small screens */
+          .space-y-8 > * + * {
+            margin-top: 0.75rem !important;
+          }
+          
+          .space-y-6 > * + * {
+            margin-top: 0.5rem !important;
+          }
+          
+          .space-y-4 > * + * {
+            margin-top: 0.25rem !important;
+          }
+        }
+        
+        /* Ensure content is properly centered and doesn't get cut off */
+        @media (max-width: 700px) {
+          /* Force proper container behavior */
+          .w-full.max-w-full {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          
+          /* Ensure glass cards don't overflow */
+          .glass-card {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+          }
+          
+          /* Ensure text doesn't overflow */
+          * {
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+          }
+          
+          /* Ensure images scale properly */
+          img {
+            max-width: 100% !important;
+            height: auto !important;
+          }
+          
+          /* Ensure buttons and inputs are properly sized */
+          button, input, select, textarea {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          
+          /* Ensure grids don't overflow */
+          .coin-grid,
+          .lightning-wallets-content .grid,
+          .kyc-info-section .grid {
+            width: 100% !important;
+            box-sizing: border-box !important;
           }
         }
     </style>
