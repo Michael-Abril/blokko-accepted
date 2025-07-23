@@ -2271,10 +2271,10 @@
                                 <div class="text-center bg-white rounded-lg p-4 border border-[#e2e8f0]">
                                     <div class="text-2xl font-bold text-[#76c23a] mb-2">None</div>
                                     <div class="text-[#0A2540] font-semibold text-base">KYC Requirement</div>
-                                    <div class="text-[#64748b] text-sm">(up to $1K)</div>
+                                    <div class="text-[#64748b] text-sm">(up to $10K)</div>
                                 </div>
                                 <div class="text-center bg-white rounded-lg p-4 border border-[#e2e8f0]">
-                                    <div class="text-2xl font-bold text-[#76c23a] mb-2">$1,000</div>
+                                    <div class="text-2xl font-bold text-[#76c23a] mb-2">$250,000</div>
                                     <div class="text-[#0A2540] font-semibold text-base">Max Transaction</div>
                                 </div>
                                 <div class="text-center bg-white rounded-lg p-4 border border-[#e2e8f0]">
@@ -2350,6 +2350,36 @@
                     <div class="glass-card p-6 max-w-4xl mx-auto">
                         <!-- Section Heading -->
                         <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 py-4 border-b border-[#e2e8f0]" style="color:#0A2540;">${stablecoins.title}</h2>
+                        
+                        <!-- Action Bar -->
+                        <div class="action-bar flex justify-between items-center py-3 mb-6 border-b border-[#e2e8f0]">
+                            <a href="#" class="how-to-video-link text-[#4aa6db] text-sm font-medium flex items-center gap-1 hover:text-[#0A2540] transition-colors">
+                                ▶️ How-To Video
+                            </a>
+                            <a href="#" class="kyc-toggle-link text-[#4aa6db] text-sm font-medium flex items-center gap-1 hover:text-[#0A2540] transition-colors" data-ln="stablecoins">
+                                ⓘ View KYC & Limits
+                            </a>
+                        </div>
+                        
+                        <!-- KYC Info Box -->
+                        <div class="kyc-info-section hidden bg-[#f4f8fb] border border-[#e2e8f0] rounded-lg p-6 mb-6">
+                            <div class="font-bold text-[#0A2540] text-lg mb-4 text-center">KYC Requirements</div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="text-center bg-white rounded-lg p-4 border border-[#e2e8f0]">
+                                    <div class="text-2xl font-bold text-[#76c23a] mb-2">None</div>
+                                    <div class="text-[#0A2540] font-semibold text-base">KYC Requirement</div>
+                                    <div class="text-[#64748b] text-sm">(up to $1k)</div>
+                                </div>
+                                <div class="text-center bg-white rounded-lg p-4 border border-[#e2e8f0]">
+                                    <div class="text-2xl font-bold text-[#76c23a] mb-2">$250,000</div>
+                                    <div class="text-[#0A2540] font-semibold text-base">Max Transaction</div>
+                                </div>
+                                <div class="text-center bg-white rounded-lg p-4 border border-[#e2e8f0]">
+                                    <div class="text-2xl font-bold text-[#76c23a] mb-2">Instant</div>
+                                    <div class="text-[#0A2540] font-semibold text-base">Processing Time</div>
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="space-y-4">
                             ${Object.entries(blockchainData).map(([blockchain, data], index) => `
