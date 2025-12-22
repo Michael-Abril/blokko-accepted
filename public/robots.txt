@@ -1,4 +1,11 @@
+# Blokko Payment Methods - robots.txt
+# https://michael-abril.github.io/blokko-accepted/
+
 User-agent: *
 Allow: /
 
-Sitemap: https://michael-abril.github.io/blokko-accepted/sitemap-index.xml
+# Sitemaps
+Sitemap: https://michael-abril.github.io/blokko-accepted/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
