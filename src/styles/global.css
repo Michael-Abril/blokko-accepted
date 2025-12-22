@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables */
+:root {
+  --blokko-primary: #4aa6db;
+  --blokko-green: #76c23a;
+  --blokko-dark: #0A2540;
+  --blokko-light-text: #E2E8F0;
+  --blokko-white: #ffffff;
+  --blokko-card-bg: #f4f8fb;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at 50% 50%, #8dd9fb 0%, #ffffff 100%);
+  color: #0A2540;
+}
+
+/* Glass Card */
+.glass-card {
+  background: #ffffff;
+  color: #0A2540;
+  border: 3px solid transparent;
+  border-radius: 1.25rem;
+  border-image-source: linear-gradient(135deg, #4aa6db 0%, #76c23a 100%);
+  border-image-slice: 1;
+  box-shadow: 0 2px 12px 0 rgba(74,166,219,0.07);
+  backdrop-filter: blur(6px);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Section Heading */
+.section-heading {
+  color: #0A2540;
+  font-weight: 800;
+  font-size: 2.25rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.section-description {
+  color: #222;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+/* Coin Grid */
+.coin-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1em;
+  overflow: hidden;
+  padding-bottom: 0;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+@media (min-width: 640px) {
+  .coin-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 768px) {
+  .coin-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .coin-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* Coin Card */
+.coin-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px 0 rgba(10,37,64,0.08);
+  transition: all 0.2s;
+}
+
+.coin-card:hover {
+  background: #f4f8fb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(10,37,64,0.12);
+}
+
+.coin-card img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5em;
+}
+
+/* Wallet Card */
+.wallet-card {
+  background: #fff;
+  color: #0A2540;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(74,166,219,0.07);
+  transition: box-shadow 0.2s;
+}
+
+.wallet-card:hover {
+  box-shadow: 0 8px 24px 0 rgba(74,166,219,0.13);
+}
+
+/* Lightning Network Wallets */
+.ln-wallets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .ln-wallets { grid-template-columns: repeat(3, 1fr); }
+}
+
+.ln-wallet-card {
+  background: #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px 0 rgba(10,37,64,0.08);
+  padding: 1em 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  font-weight: 600;
+  color: #0A2540;
+  min-width: 180px;
+  margin-bottom: 0.5em;
+}
+
+/* RTP Network Cards */
+.rtp-network-card {
+  background: #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px 0 rgba(10,37,64,0.08);
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-weight: 600;
+  color: #0A2540;
+}
+
+/* Search Bar */
+.search-bar {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  color: #0A2540;
+  width: 100%;
+  border-radius: 9999px;
+  padding: 0.5rem 2.5rem 0.5rem 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px 0 rgba(74,166,219,0.04);
+  height: 44px;
+}
+
+.search-bar:focus {
+  border-color: var(--blokko-primary);
+  outline: none;
+}
+
+/* Show More Button */
+.show-more-btn {
+  background: var(--blokko-primary);
+  color: #fff;
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  transition: background 0.2s;
+  margin: 0.5rem auto 0 auto;
+  display: block;
+  box-shadow: 0 2px 8px 0 rgba(74,166,219,0.10);
+  position: relative;
+  z-index: 10;
+}
+
+.show-more-btn:hover {
+  background: var(--blokko-green);
+}
+
+/* Accordion */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-button svg {
+  transition: transform 0.3s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b6c6d8;
+}
+
+/* Logo Styles */
+.cex-logo, .wallet-logo, .stablecoin-logo, .rtp-logo {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgba(10,37,64,0.10);
+}
+
+/* Section Containers */
+.cex-section, .rtp-section, .stablecoins-section {
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 rgba(10,37,64,0.08);
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .cex-section, .rtp-section, .stablecoins-section {
+    padding: 2rem;
+  }
+}
+
+/* Stablecoin Styles */
+.stablecoin-item {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(74,166,219,0.07);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.stablecoin-header {
+  background: linear-gradient(135deg, #4aa6db 0%, #76c23a 100%);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stablecoin-header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  padding: 4px;
+}
+
+.stablecoin-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Blockchain Card */
+.blockchain-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.blockchain-card:hover {
+  border-color: #4aa6db;
+  box-shadow: 0 4px 12px 0 rgba(74,166,219,0.1);
+}
+
+.blockchain-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.blockchain-header img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 4px 0 rgba(10,37,64,0.1);
+}
+
+.blockchain-header h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0A2540;
+  margin: 0;
+}
+
+/* Loader */
+.loader {
+  border: 3px solid rgba(74,166,219,0.1);
+  border-radius: 50%;
+  border-top: 3px solid var(--blokko-primary);
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+/* Highlight */
+.highlight {
+  color: #4aa6db;
+  font-weight: 600;
+}

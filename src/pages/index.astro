@@ -1,0 +1,276 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+// Import data
+import exchangesData from '../data/exchanges/exchanges.json';
+import binanceCoins from '../data/exchanges/binance-coins.json';
+import cryptoComCoins from '../data/exchanges/crypto-com-coins.json';
+import coinbaseCoins from '../data/exchanges/coinbase-coins.json';
+import lightningData from '../data/lightning-wallets.json';
+import stablecoinsData from '../data/stablecoins.json';
+import rtpData from '../data/rtp-networks.json';
+
+// Map coin files to exchanges
+const coinFiles: Record<string, any[]> = {
+  'binance-coins.json': binanceCoins,
+  'crypto-com-coins.json': cryptoComCoins,
+  'coinbase-coins.json': coinbaseCoins,
+};
+---
+
+<BaseLayout>
+  <div class="container mx-auto px-4 py-8 md:py-16">
+    <Header />
+
+    <main id="payment-methods-container" class="space-y-16">
+
+      <!-- Centralized Exchanges Section -->
+      <section class="fade-in">
+        <div class="text-center mb-12">
+          <h2 class="section-heading">{exchangesData.title}</h2>
+          <p class="section-description" set:html={exchangesData.description}></p>
+        </div>
+        <div class="space-y-6">
+          {exchangesData.exchanges.map((exchange, index) => (
+            <div class="glass-card p-0 overflow-hidden">
+              <button
+                class="accordion-button w-full flex justify-between items-center p-6 text-left hover:bg-[#4aa6db]/10 transition-colors"
+                data-exchange={index}
+              >
+                <div class="flex items-center space-x-4">
+                  <img src={exchange.icon} alt={`${exchange.name} logo`} class="w-12 h-12 rounded-lg" />
+                  <div>
+                    <h3 class="text-xl font-bold">{exchange.name}</h3>
+                  </div>
+                </div>
+                <svg class="w-6 h-6 text-[#4aa6db] chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="accordion-content" data-exchange={index}>
+                <div class="p-6 border-t border-[#e2e8f0]">
+                  <input
+                    type="text"
+                    class="search-bar"
+                    placeholder="Search coins..."
+                    data-exchange={index}
+                  />
+                  <div class="coin-grid" data-exchange={index} style="max-height: 400px;">
+                    {coinFiles[exchange.coinsFile]?.slice(0, 15).map((coin) => (
+                      <div class="coin-card">
+                        <img src={coin.icon} alt={coin.name} class="w-8 h-8 rounded-full" />
+                        <span class="text-sm font-semibold">{coin.name}</span>
+                        <span class="text-xs text-[#4aa6db] font-semibold">{coin.ticker}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <button class="show-more-btn mt-4" data-exchange={index}>
+                    Show More ({coinFiles[exchange.coinsFile]?.length - 15}+ coins)
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Lightning Network Section -->
+      <section class="fade-in">
+        <div class="text-center mb-12">
+          <h2 class="section-heading">{lightningData.title}</h2>
+          <p class="section-description">{lightningData.description}</p>
+        </div>
+        <div class="glass-card p-6">
+          <div class="flex items-center justify-center mb-6">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Lightning_Network.svg"
+              alt="Lightning Network logo"
+              class="w-16 h-16 mr-4"
+            />
+            <h3 class="text-2xl font-bold text-[#0A2540]">Bitcoin Lightning</h3>
+          </div>
+          <div class="ln-wallets">
+            {lightningData.wallets.map((wallet) => (
+              <div class="ln-wallet-card">
+                <img src={wallet.icon} alt={wallet.name} class="w-10 h-10 rounded-lg" />
+                <div>
+                  <div class="font-semibold">{wallet.name}</div>
+                  <div class="text-xs text-gray-500">{wallet.description}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Stablecoins Section -->
+      <section class="fade-in">
+        <div class="text-center mb-12">
+          <h2 class="section-heading">{stablecoinsData.title}</h2>
+          <p class="section-description">{stablecoinsData.description}</p>
+        </div>
+        <div class="space-y-8">
+          {stablecoinsData.coins.map((coin) => (
+            <div class="stablecoin-item">
+              <div class="stablecoin-header">
+                <img src={coin.icon} alt={coin.name} />
+                <div>
+                  <h3>{coin.name}</h3>
+                  <div class="ticker opacity-90">{coin.ticker}</div>
+                </div>
+              </div>
+              <div class="p-6">
+                <h4 class="text-lg font-semibold mb-4 text-center">Supported Blockchains</h4>
+                <div class="space-y-4">
+                  {coin.networks.map((network) => (
+                    <div class="blockchain-card">
+                      <div class="blockchain-header">
+                        <img src={network.icon} alt={network.chain} />
+                        <h4>{network.chain}</h4>
+                      </div>
+                      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                        {network.wallets.map((wallet) => (
+                          <div class="flex items-center space-x-2 p-2 bg-white rounded-lg border border-[#e2e8f0]">
+                            <img src={wallet.icon} alt={wallet.name} class="w-6 h-6 rounded-full" />
+                            <span class="text-sm font-medium">{wallet.name}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Real-Time Payments Section -->
+      <section class="fade-in">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color:#0A2540;">{rtpData.title}</h2>
+          <p class="section-description">{rtpData.description}</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {rtpData.networks.map((network) => (
+            <div class="glass-card rounded-2xl p-8 text-center hover:bg-white/5 transition-all">
+              <div class="flex flex-col items-center space-y-4">
+                <img src={network.logo} alt={`${network.name} logo`} class="h-16 w-auto max-w-[120px]" />
+                <h3 class="text-2xl font-bold text-[#0A2540]">{network.name}</h3>
+                <p class="text-lg text-[#4aa6db] font-semibold flex items-center justify-center gap-2">
+                  {network.country}
+                  <img src={network.flagUrl} alt={`${network.country} flag`} class="h-5 w-7 rounded" />
+                </p>
+                <div class="bg-[#4aa6db]/10 rounded-lg px-4 py-2">
+                  <div class="text-lg font-semibold text-[#0A2540]">{network.asset}</div>
+                </div>
+                <p class="text-sm text-[#0A2540] opacity-80 max-w-xs">{network.description}</p>
+
+                <!-- Wallet Dropdown -->
+                <div class="mt-6 w-full">
+                  <button
+                    type="button"
+                    class="rtp-wallets-toggle flex items-center justify-center gap-2 text-base font-semibold mb-2 px-4 py-2 rounded-lg bg-[#f4f8fb] border border-[#e2e8f0] w-full"
+                    data-rtp={network.id}
+                  >
+                    Popular Wallets
+                    <svg class="chevron w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  <div class="rtp-wallets-dropdown hidden" data-rtp={network.id}>
+                    <div class="grid grid-cols-2 gap-3 mt-3">
+                      {network.wallets.map((wallet) => (
+                        <div class="flex flex-col items-center p-2">
+                          <img
+                            src={wallet.icon}
+                            alt={wallet.name}
+                            class="w-12 h-12 rounded-full bg-white object-contain border"
+                          />
+                          <span class="mt-1 text-xs font-medium text-center">{wallet.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+
+  <script>
+    // Accordion functionality
+    document.querySelectorAll('.accordion-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const exchange = button.getAttribute('data-exchange');
+        const content = document.querySelector(`.accordion-content[data-exchange="${exchange}"]`) as HTMLElement;
+        const chevron = button.querySelector('.chevron') as HTMLElement;
+
+        if (content) {
+          if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            content.style.maxHeight = '0px';
+            if (chevron) chevron.style.transform = 'rotate(0deg)';
+          } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            if (chevron) chevron.style.transform = 'rotate(180deg)';
+          }
+        }
+      });
+    });
+
+    // RTP wallet dropdown functionality
+    document.querySelectorAll('.rtp-wallets-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const rtp = button.getAttribute('data-rtp');
+        const dropdown = document.querySelector(`.rtp-wallets-dropdown[data-rtp="${rtp}"]`);
+        const chevron = button.querySelector('.chevron') as HTMLElement;
+
+        if (dropdown) {
+          dropdown.classList.toggle('hidden');
+          if (chevron) {
+            chevron.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+          }
+        }
+      });
+    });
+
+    // Search functionality (simplified)
+    document.querySelectorAll('.search-bar').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement;
+        const exchange = target.getAttribute('data-exchange');
+        const grid = document.querySelector(`.coin-grid[data-exchange="${exchange}"]`);
+        const query = target.value.toLowerCase();
+
+        if (grid) {
+          const coins = grid.querySelectorAll('.coin-card');
+          coins.forEach(coin => {
+            const text = coin.textContent?.toLowerCase() || '';
+            (coin as HTMLElement).style.display = text.includes(query) ? 'flex' : 'none';
+          });
+        }
+      });
+    });
+
+    // Show more functionality
+    document.querySelectorAll('.show-more-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const exchange = button.getAttribute('data-exchange');
+        const grid = document.querySelector(`.coin-grid[data-exchange="${exchange}"]`) as HTMLElement;
+
+        if (grid) {
+          grid.style.maxHeight = grid.style.maxHeight === 'none' ? '400px' : 'none';
+          button.textContent = grid.style.maxHeight === 'none' ? 'Show Less' : 'Show More';
+        }
+      });
+    });
+  </script>
+</BaseLayout>

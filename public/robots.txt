@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://michael-abril.github.io/blokko-accepted/sitemap-index.xml

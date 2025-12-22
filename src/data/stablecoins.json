@@ -1,0 +1,133 @@
+{
+  "title": "Stablecoins",
+  "description": "Customers can pay with leading stablecoins from any compatible wallet. We support payments on multiple blockchain networks for each stablecoin to provide maximum flexibility.",
+  "coins": [
+    {
+      "name": "Tether",
+      "ticker": "USDT",
+      "icon": "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/usdt.svg",
+      "networks": [
+        {
+          "chain": "Ethereum",
+          "icon": "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/eth.svg",
+          "wallets": [
+            { "name": "MetaMask", "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/512px-MetaMask_Fox.svg.png" },
+            { "name": "Trust Wallet", "icon": "https://trustwallet.com/assets/images/media/assets/TWT.png" },
+            { "name": "Ledger Live", "icon": "https://logo.clearbit.com/ledger.com" },
+            { "name": "Coinbase Wallet", "icon": "https://logo.clearbit.com/coinbase.com" },
+            { "name": "Rainbow", "icon": "https://logo.clearbit.com/rainbow.me" },
+            { "name": "Argent", "icon": "https://logo.clearbit.com/argent.xyz" },
+            { "name": "Trezor", "icon": "https://logo.clearbit.com/trezor.io" },
+            { "name": "Exodus", "icon": "https://logo.clearbit.com/exodus.com" },
+            { "name": "Brave Wallet", "icon": "https://logo.clearbit.com/brave.com" }
+          ]
+        },
+        {
+          "chain": "Solana",
+          "icon": "https://s3.coinmarketcap.com/static-gravity/image/5cc0b99a8dd84fbfa4e150d84b5531f2.png",
+          "wallets": [
+            { "name": "Phantom", "icon": "https://logo.clearbit.com/phantom.app" },
+            { "name": "Solflare", "icon": "https://logo.clearbit.com/solflare.com" },
+            { "name": "Backpack", "icon": "https://logo.clearbit.com/backpack.app" },
+            { "name": "Ledger Live", "icon": "https://logo.clearbit.com/ledger.com" },
+            { "name": "Exodus", "icon": "https://logo.clearbit.com/exodus.com" },
+            { "name": "Trust Wallet", "icon": "https://trustwallet.com/assets/images/media/assets/TWT.png" }
+          ]
+        },
+        {
+          "chain": "Polygon",
+          "icon": "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/matic.svg",
+          "wallets": [
+            { "name": "MetaMask", "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/512px-MetaMask_Fox.svg.png" },
+            { "name": "Trust Wallet", "icon": "https://trustwallet.com/assets/images/media/assets/TWT.png" },
+            { "name": "Ledger Live", "icon": "https://logo.clearbit.com/ledger.com" },
+            { "name": "Coinbase Wallet", "icon": "https://logo.clearbit.com/coinbase.com" },
+            { "name": "Exodus", "icon": "https://logo.clearbit.com/exodus.com" }
+          ]
+        },
+        {
+          "chain": "Tron",
+          "icon": "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/trx.svg",
+          "wallets": [
+            { "name": "TronLink", "icon": "https://logo.clearbit.com/tronlink.org" },
+            { "name": "Trust Wallet", "icon": "https://trustwallet.com/assets/images/media/assets/TWT.png" },
+            { "name": "Ledger Live", "icon": "https://logo.clearbit.com/ledger.com" },
+            { "name": "Klever Wallet", "icon": "https://logo.clearbit.com/klever.io" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "USD Coin",
+      "ticker": "USDC",
+      "icon": "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/usdc.svg",
+      "networks": [
+        {
+          "chain": "Ethereum",
+          "icon": "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/eth.svg",
+          "wallets": [
+            { "name": "MetaMask", "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/512px-MetaMask_Fox.svg.png" },
+            { "name": "Trust Wallet", "icon": "https://trustwallet.com/assets/images/media/assets/TWT.png" },
+            { "name": "Ledger Live", "icon": "https://logo.clearbit.com/ledger.com" },
+            { "name": "Coinbase Wallet", "icon": "https://logo.clearbit.com/coinbase.com" },
+            { "name": "Rainbow", "icon": "https://logo.clearbit.com/rainbow.me" },
+            { "name": "Argent", "icon": "https://logo.clearbit.com/argent.xyz" },
+            { "name": "Exodus", "icon": "https://logo.clearbit.com/exodus.com" },
+            { "name": "Brave Wallet", "icon": "https://logo.clearbit.com/brave.com" }
+          ]
+        },
+        {
+          "chain": "Solana",
+          "icon": "https://s3.coinmarketcap.com/static-gravity/image/5cc0b99a8dd84fbfa4e150d84b5531f2.png",
+          "wallets": [
+            { "name": "Phantom", "icon": "https://logo.clearbit.com/phantom.app" },
+            { "name": "Solflare", "icon": "https://logo.clearbit.com/solflare.com" },
+            { "name": "Backpack", "icon": "https://logo.clearbit.com/backpack.app" },
+            { "name": "Ledger Live", "icon": "https://logo.clearbit.com/ledger.com" },
+            { "name": "Exodus", "icon": "https://logo.clearbit.com/exodus.com" }
+          ]
+        },
+        {
+          "chain": "Polygon",
+          "icon": "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/matic.svg",
+          "wallets": [
+            { "name": "MetaMask", "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/512px-MetaMask_Fox.svg.png" },
+            { "name": "Trust Wallet", "icon": "https://trustwallet.com/assets/images/media/assets/TWT.png" },
+            { "name": "Ledger Live", "icon": "https://logo.clearbit.com/ledger.com" },
+            { "name": "Coinbase Wallet", "icon": "https://logo.clearbit.com/coinbase.com" },
+            { "name": "Exodus", "icon": "https://logo.clearbit.com/exodus.com" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PayPal USD",
+      "ticker": "PYUSD",
+      "icon": "https://www.vectorlogo.zone/logos/paypal/paypal-icon.svg",
+      "networks": [
+        {
+          "chain": "Ethereum",
+          "icon": "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/eth.svg",
+          "wallets": [
+            { "name": "MetaMask", "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/512px-MetaMask_Fox.svg.png" },
+            { "name": "Trust Wallet", "icon": "https://trustwallet.com/assets/images/media/assets/TWT.png" },
+            { "name": "Ledger Live", "icon": "https://logo.clearbit.com/ledger.com" },
+            { "name": "Coinbase Wallet", "icon": "https://logo.clearbit.com/coinbase.com" },
+            { "name": "Exodus", "icon": "https://logo.clearbit.com/exodus.com" },
+            { "name": "Brave Wallet", "icon": "https://logo.clearbit.com/brave.com" }
+          ]
+        },
+        {
+          "chain": "Solana",
+          "icon": "https://s3.coinmarketcap.com/static-gravity/image/5cc0b99a8dd84fbfa4e150d84b5531f2.png",
+          "wallets": [
+            { "name": "Phantom", "icon": "https://logo.clearbit.com/phantom.app" },
+            { "name": "Solflare", "icon": "https://logo.clearbit.com/solflare.com" },
+            { "name": "Backpack", "icon": "https://logo.clearbit.com/backpack.app" },
+            { "name": "Exodus", "icon": "https://logo.clearbit.com/exodus.com" }
+          ]
+        }
+      ]
+    }
+  ]
+}

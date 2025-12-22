@@ -1,0 +1,106 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Blokko | Supported Payment Methods",
+  description = "Discover all payment methods accepted by Blokko - cryptocurrency exchanges, Lightning Network, stablecoins, and real-time payment systems across Latin America including PIX, SPEI, PSE, Yape, and more."
+} = Astro.props;
+
+const siteUrl = "https://michael-abril.github.io/blokko-accepted";
+const ogImage = "https://a10449bdfbfb3f01814a0ac8808e260a.cdn.bubble.io/cdn-cgi/image/w=800,h=346,f=auto,dpr=2,fit=contain/f1730063213960x236193636720462240/Blokko_io.png";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content={description}>
+  <meta name="keywords" content="Blokko, cryptocurrency payments, Bitcoin, Ethereum, stablecoins, USDT, USDC, Lightning Network, PIX, SPEI, PSE, Yape, Latin America payments, crypto payments, digital payments">
+  <meta name="author" content="Blokko">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href={siteUrl}>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={siteUrl}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:site_name" content="Blokko">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content={siteUrl}>
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/blokko-accepted/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Blokko Supported Payment Methods",
+    "description": "Comprehensive guide to all payment methods accepted by Blokko",
+    "url": "https://michael-abril.github.io/blokko-accepted",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Blokko",
+      "url": "https://blokko.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://a10449bdfbfb3f01814a0ac8808e260a.cdn.bubble.io/cdn-cgi/image/w=800,h=346,f=auto,dpr=2,fit=contain/f1730063213960x236193636720462240/Blokko_io.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Supported Payment Methods",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Centralized Exchanges",
+          "description": "Pay with Binance Pay, Crypto.com Pay, and Coinbase"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Lightning Network",
+          "description": "Instant Bitcoin payments with low fees"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Stablecoins",
+          "description": "USDT, USDC, and PYUSD on multiple blockchains"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Real-Time Payments",
+          "description": "PIX, SPEI, PSE, Yape and more across Latin America"
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body class="font-inter bg-gradient-radial from-blokko-primary/20 to-white text-blokko-dark min-h-screen">
+  <slot />
+</body>
+</html>

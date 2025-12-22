@@ -1,0 +1,24 @@
+{
+  "title": "Centralized Exchanges (CEX)",
+  "description": "Customers can pay directly from their accounts at major cryptocurrency exchanges. A key benefit of this method is that customers can use <strong>any cryptocurrency asset</strong> they hold in their exchange account. The exchange handles the real-time conversion to complete the payment.",
+  "exchanges": [
+    {
+      "id": "binance",
+      "name": "Binance Pay",
+      "icon": "https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/bnb.svg",
+      "coinsFile": "binance-coins.json"
+    },
+    {
+      "id": "crypto-com",
+      "name": "Crypto.com Pay",
+      "icon": "https://play-lh.googleusercontent.com/OhMXdCWVlKDPK-sMeMyd2PjwvFQ8d1gt5xLYtPVSyvLWxalI6bJpQz2sqGIZDIDXM4Y",
+      "coinsFile": "crypto-com-coins.json"
+    },
+    {
+      "id": "coinbase",
+      "name": "Coinbase",
+      "icon": "https://logo.clearbit.com/coinbase.com",
+      "coinsFile": "coinbase-coins.json"
+    }
+  ]
+}

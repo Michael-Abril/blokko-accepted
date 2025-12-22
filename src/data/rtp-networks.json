@@ -1,0 +1,162 @@
+{
+  "title": "Real-Time Payments (RTP)",
+  "description": "Blokko supports direct, real-time bank payments from customers in specific regions, using their local currency.",
+  "networks": [
+    {
+      "id": "pix",
+      "name": "Pix",
+      "country": "Brazil",
+      "flag": "🇧🇷",
+      "flagUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg",
+      "asset": "Brazilian Real (BRL)",
+      "description": "Instant payment system in Brazil",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg",
+      "wallets": [
+        { "name": "Nubank", "icon": "https://logo.clearbit.com/nubank.com.br" },
+        { "name": "Banco do Brasil", "icon": "https://logo.clearbit.com/bb.com.br" },
+        { "name": "Banco Inter", "icon": "https://logo.clearbit.com/bancointer.com.br" },
+        { "name": "Itaú Unibanco", "icon": "https://logo.clearbit.com/itau.com.br" },
+        { "name": "Bradesco", "icon": "https://logo.clearbit.com/bradesco.com.br" },
+        { "name": "Caixa", "icon": "https://logo.clearbit.com/caixa.gov.br" },
+        { "name": "Santander Brasil", "icon": "https://logo.clearbit.com/santander.com.br" },
+        { "name": "PicPay", "icon": "https://logo.clearbit.com/picpay.com" }
+      ]
+    },
+    {
+      "id": "spei",
+      "name": "SPEI",
+      "country": "Mexico",
+      "flag": "🇲🇽",
+      "flagUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg",
+      "asset": "Mexican Peso (MXN)",
+      "description": "Interbank electronic payment system in Mexico",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/40/Logobm.svg",
+      "wallets": [
+        { "name": "BBVA México", "icon": "https://logo.clearbit.com/bbva.mx" },
+        { "name": "Banorte", "icon": "https://logo.clearbit.com/banorte.com" },
+        { "name": "Santander México", "icon": "https://logo.clearbit.com/santander.com.mx" },
+        { "name": "Citibanamex", "icon": "https://logo.clearbit.com/banamex.com" },
+        { "name": "HSBC México", "icon": "https://logo.clearbit.com/hsbc.com.mx" },
+        { "name": "Scotiabank México", "icon": "https://logo.clearbit.com/scotiabank.com.mx" },
+        { "name": "Nu México", "icon": "https://logo.clearbit.com/nu.com.mx" },
+        { "name": "Mercado Pago", "icon": "https://logo.clearbit.com/mercadopago.com.mx" }
+      ]
+    },
+    {
+      "id": "codi",
+      "name": "CoDi",
+      "country": "Mexico",
+      "flag": "🇲🇽",
+      "flagUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg",
+      "asset": "Mexican Peso (MXN)",
+      "description": "QR-based digital payment system in Mexico",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/40/Logobm.svg",
+      "wallets": [
+        { "name": "BBVA México", "icon": "https://logo.clearbit.com/bbva.mx" },
+        { "name": "Citibanamex", "icon": "https://logo.clearbit.com/banamex.com" },
+        { "name": "Santander México", "icon": "https://logo.clearbit.com/santander.com.mx" },
+        { "name": "Banorte", "icon": "https://logo.clearbit.com/banorte.com" },
+        { "name": "Banco Azteca", "icon": "https://logo.clearbit.com/bancoazteca.com.mx" },
+        { "name": "Mercado Pago", "icon": "https://logo.clearbit.com/mercadopago.com.mx" }
+      ]
+    },
+    {
+      "id": "pse",
+      "name": "PSE",
+      "country": "Colombia",
+      "flag": "🇨🇴",
+      "flagUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg",
+      "asset": "Colombian Peso (COP)",
+      "description": "Online secure payment system in Colombia",
+      "logo": "https://seeklogo.com/images/P/pse-logo-6CC2D6FBF8-seeklogo.com.png",
+      "wallets": [
+        { "name": "Bancolombia", "icon": "https://logo.clearbit.com/bancolombia.com" },
+        { "name": "Nequi", "icon": "https://logo.clearbit.com/nequi.com.co" },
+        { "name": "Daviplata", "icon": "https://logo.clearbit.com/daviplata.com" },
+        { "name": "Davivienda", "icon": "https://logo.clearbit.com/davivienda.com" },
+        { "name": "Banco de Bogotá", "icon": "https://logo.clearbit.com/bancodebogota.com" },
+        { "name": "BBVA Colombia", "icon": "https://logo.clearbit.com/bbva.com.co" },
+        { "name": "Banco Popular", "icon": "https://logo.clearbit.com/bancopopular.com.co" },
+        { "name": "Banco Agrario", "icon": "https://logo.clearbit.com/bancoagrario.gov.co" }
+      ]
+    },
+    {
+      "id": "yape",
+      "name": "Yape",
+      "country": "Peru",
+      "flag": "🇵🇪",
+      "flagUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg",
+      "asset": "Peruvian Sol (PEN)",
+      "description": "Most popular mobile payment app in Peru",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Yape_peru_logotype.svg",
+      "wallets": [
+        { "name": "Yape (BCP)", "icon": "https://logo.clearbit.com/yape.com.pe" },
+        { "name": "Plin", "icon": "https://logo.clearbit.com/plin.pe" },
+        { "name": "BCP", "icon": "https://logo.clearbit.com/viabcp.com" },
+        { "name": "BBVA Perú", "icon": "https://logo.clearbit.com/bbva.pe" },
+        { "name": "Interbank", "icon": "https://logo.clearbit.com/interbank.pe" },
+        { "name": "Scotiabank Perú", "icon": "https://logo.clearbit.com/scotiabank.com.pe" },
+        { "name": "Banco de la Nación", "icon": "https://logo.clearbit.com/bn.com.pe" },
+        { "name": "Tunki", "icon": "https://logo.clearbit.com/tunki.com.pe" }
+      ]
+    },
+    {
+      "id": "transferencias-30",
+      "name": "Transferencias 3.0",
+      "country": "Argentina",
+      "flag": "🇦🇷",
+      "flagUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg",
+      "asset": "Argentine Peso (ARS)",
+      "description": "QR-based instant payment system in Argentina",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/3/35/Banco_Central_de_la_Rep%C3%BAblica_Argentina_logo.svg",
+      "wallets": [
+        { "name": "Mercado Pago", "icon": "https://logo.clearbit.com/mercadopago.com.ar" },
+        { "name": "Ualá", "icon": "https://logo.clearbit.com/uala.com.ar" },
+        { "name": "Brubank", "icon": "https://logo.clearbit.com/brubank.com.ar" },
+        { "name": "Banco Galicia", "icon": "https://logo.clearbit.com/bancogalicia.com" },
+        { "name": "Banco Santander", "icon": "https://logo.clearbit.com/santander.com.ar" },
+        { "name": "Banco Nación", "icon": "https://logo.clearbit.com/bna.com.ar" },
+        { "name": "Naranja X", "icon": "https://logo.clearbit.com/naranjax.com" },
+        { "name": "Personal Pay", "icon": "https://logo.clearbit.com/personal.com.ar" }
+      ]
+    },
+    {
+      "id": "khipu",
+      "name": "KHIPU",
+      "country": "Chile",
+      "flag": "🇨🇱",
+      "flagUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg",
+      "asset": "Chilean Peso (CLP)",
+      "description": "Bank transfer payment system in Chile",
+      "logo": "https://logo.clearbit.com/khipu.com",
+      "wallets": [
+        { "name": "Banco de Chile", "icon": "https://logo.clearbit.com/bancochile.cl" },
+        { "name": "BancoEstado", "icon": "https://logo.clearbit.com/bancoestado.cl" },
+        { "name": "Santander Chile", "icon": "https://logo.clearbit.com/santander.cl" },
+        { "name": "Banco Falabella", "icon": "https://logo.clearbit.com/bancofalabella.cl" },
+        { "name": "Banco Itaú Chile", "icon": "https://logo.clearbit.com/itau.cl" },
+        { "name": "Banco BCI", "icon": "https://logo.clearbit.com/bci.cl" },
+        { "name": "Scotiabank Chile", "icon": "https://logo.clearbit.com/scotiabankchile.cl" },
+        { "name": "MACH", "icon": "https://logo.clearbit.com/mach.cl" }
+      ]
+    },
+    {
+      "id": "sip-qr",
+      "name": "SIP-QR",
+      "country": "Bolivia",
+      "flag": "🇧🇴",
+      "flagUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg",
+      "asset": "Boliviano (BOB)",
+      "description": "Interoperable payment system in Bolivia",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Escudo_del_Banco_Central_de_Bolivia.svg",
+      "wallets": [
+        { "name": "Banco Mercantil", "icon": "https://logo.clearbit.com/bmsc.com.bo" },
+        { "name": "BancoSol", "icon": "https://logo.clearbit.com/bancosol.com.bo" },
+        { "name": "Banco Unión", "icon": "https://logo.clearbit.com/bancounion.com.bo" },
+        { "name": "Banco Nacional de Bolivia", "icon": "https://logo.clearbit.com/bnb.com.bo" },
+        { "name": "Banco FIE", "icon": "https://logo.clearbit.com/bancofie.com.bo" },
+        { "name": "Banco Económico", "icon": "https://logo.clearbit.com/bancoeconomico.com.bo" }
+      ]
+    }
+  ]
+}
