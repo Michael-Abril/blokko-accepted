@@ -21,3 +21,7 @@ Thumbs.db
 
 # Backup files
 *.backup
+
+# Sensitive business documents
+PRICING_STRATEGY.md
+VARITY_VALUATION.md
